@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2011-2019 The MathWorks, Inc. -->
+<!-- THIS FILE CONTRIBUTES TO THE MATLAB APPS & PLOTS GALLERY WHICH IS CAREFULLY CURATED -->
+<!-- ADDITIONS AND CHANGES MUST GO THROUGH A DESIGN REVIEW PROCESS WITH SENIOR MANAGEMENT -->
+<!-- THIS PROCESS IS MANAGED BY THE MATLAB DESKTOP TEAM. CONSULT THE TOOLSTRIP GUIDELINES TO GET STARTED -->
+<toolset id="stats_toolset" message_catalog="stats:desktop">
+    <tool id="dfittool">
+        <icon filename="stats_app_16.png" path="." />
+        <icon filename="stats_app_24.png" path="." />
+        <callback>dfittool</callback>
+        <parent_tool id="math_products" toolset_id="apps_toolset" />
+    </tool>
+
+    <tool id="boxplot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-boxplot.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-boxplot.png" path="../../matlab/icons" />
+        <function>boxplot</function>
+        <visibility>@(args) statsplotfunc( 'defaultshow','boxplot',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ecdf" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ecdf.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-ecdf.png" path="../../matlab/icons" />
+        <function>ecdf</function>
+        <visibility>@(args) statsplotfunc('defaultshow', 'ecdf',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="histfit" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-histfit.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-histfit.png" path="../../matlab/icons" />
+        <function>histfit</function>
+        <visibility>@(args) statsplotfunc('defaultshow','histfit',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="ksdensity" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-ksdensity.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-ksdensity.png" path="../../matlab/icons" />
+        <function>ksdensity</function>
+        <visibility>@(args) statsplotfunc('defaultshow','ksdensity',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="probplot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-probplot.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-probplot.png" path="../../matlab/icons" />
+        <function>probplot</function>
+        <visibility>@(args) statsplotfunc('defaultshow','normal probability plot',[],args)</visibility>
+        <action>@(varNames) statsplotfunc('defaultdisplay','normal probability plot',varNames)</action>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="weibull" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-probplot.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-probplot.png" path="../../matlab/icons" />
+        <function>probplot</function>
+        <visibility>@(args) statsplotfunc('defaultshow','weibull probability plot',[],args)</visibility>
+        <action>@(varNames) statsplotfunc('defaultdisplay','weibull probability plot',varNames)</action>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="qqplot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-qqplot.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-qqplot.png" path="../../matlab/icons" />
+        <function>qqplot</function>
+        <visibility>@(args) statsplotfunc('defaultshow','qqplot',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="gscatter" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-gscatter.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-gscatter.png" path="../../matlab/icons" />
+        <function>gscatter</function>
+        <visibility>@(args) statsplotfunc('defaultshow','gscatter',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="hist3" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-hist3.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-hist3.png" path="../../matlab/icons" />
+        <function>hist3</function>
+        <visibility>@(args) statsplotfunc('defaultshow', 'hist3',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="scatterhist" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-scatterhist.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-scatterhist.png" path="../../matlab/icons" />
+        <function>scatterhist</function>
+        <visibility>@(args) statsplotfunc('defaultshow','scatterhist',[],args)</visibility>
+        <action>@(varNames)statsplotfunc('defaultdisplay','scatterhist',varNames,[])</action>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="gplotmatrix" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-gplotmatrix.png" path="../../matlab/icons/stats" />
+        <icon filename="plottype-gplotmatrix.png" path="../../matlab/icons/stats" />
+        <function>gplotmatrix</function>
+        <visibility>@(args) statsplotfunc('defaultshow','gplotmatrix',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="parallelcoords" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-parallelcoords.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-parallelcoords.png" path="../../matlab/icons" />
+        <function>parallelcoords</function>
+        <visibility>@(args) statsplotfunc('defaultshow','parallelcoords',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="andrewsplot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-andrewsplot.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-andrewsplot.png" path="../../matlab/icons" />
+        <function>andrewsplot</function>
+        <visibility>@(args) statsplotfunc('defaultshow','andrewsplot',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="glyphplot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-glyphplot-star.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-glyphplot-star.png" path="../../matlab/icons" />
+        <function>glyphplot</function>
+        <visibility>@(args) statsplotfunc('defaultshow','glyphplot',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="facesglyphplot" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-glyphplot-face.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-glyphplot-face.png" path="../../matlab/icons" />
+        <function>glyphplot</function>
+        <visibility>@(args) statsplotfunc('defaultshow','faces glyph plot',[],args)</visibility>
+        <action>@(varNames) statsplotfunc('defaultdisplay','faces glyph plot',varNames)</action>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="controlchart" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-controlchart.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-controlchart.png" path="../../matlab/icons" />
+        <function>controlchart</function>
+        <visibility>@(args) statsplotfunc('defaultshow','controlchart',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="dendrogram" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-dendrogram.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-dendrogram.png" path="../../matlab/icons" />
+        <function>dendrogram</function>
+        <visibility>@(args) statsplotfunc('defaultshow','dendrogram',[],args)</visibility>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="residproblm" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-probplot.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-probplot.png" path="../../matlab/icons" />
+        <function>plotResiduals</function>
+        <visibility>@(args) statsplotfunc('defaultshow','residprob',[],args)</visibility>
+        <action>@(obj) statsplotfunc('defaultdisplay','residuals probplot',obj)</action>
+        <methodof>LinearModel,GeneralizedLinearModel,NonLinearModel</methodof>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="residhistlm" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-hist.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-hist.png" path="../../matlab/icons" />
+        <function>plotResiduals</function>
+        <visibility>@(args) statsplotfunc('defaultshow','residhist',[],args)</visibility>
+        <methodof>LinearModel,GeneralizedLinearModel,NonLinearModel</methodof>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="residfittedlm" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-scatter.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-scatter.png" path="../../matlab/icons" />
+        <function>plotResiduals</function>
+        <visibility>@(args) statsplotfunc('defaultshow','residfitted',[],args)</visibility>
+        <action>@(obj) statsplotfunc('defaultdisplay','residuals fitted',obj)</action>
+        <methodof>LinearModel,GeneralizedLinearModel,NonLinearModel</methodof>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="slicelm" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-slice.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-slice.png" path="../../matlab/icons" />
+        <function>plotSlice</function>
+        <visibility>@(args) statsplotfunc('defaultshow','slice',[],args)</visibility>
+        <action>@(obj) statsplotfunc('defaultdisplay','slice',obj)</action>
+        <methodof>LinearModel,GeneralizedLinearModel</methodof>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+    <tool id="effects" handler_class="com.mathworks.mlwidgets.graphics.PlotToolSetHandler">
+        <icon filename="plottype-effects.png" path="../../matlab/icons/stats" />
+        <icon filename="plotpicker-effects.png" path="../../matlab/icons" />
+        <function>plotEffects</function>
+        <visibility>@(args) statsplotfunc('defaultshow','effects',[],args)</visibility>
+        <methodof>LinearModel</methodof>
+        <parent_tool id="category_stats" toolset_id="plot_toolset" />
+    </tool>
+</toolset>

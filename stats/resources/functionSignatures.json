@@ -1,0 +1,3388 @@
+{
+    "adtest":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":[["double", "vector"], ["single", "vector"]]},
+
+            {"name":"Distribution", "kind":"namevalue", "type":[["choices={'norm', 'exp', 'ev', 'logn', 'weibull'}"], ["prob.ProbabilityDistribution"], ["char"]]},
+            {"name":"Alpha", "kind":"namevalue", "type":[["double", "scalar", ">=0", "<=1"], ["single", "scalar", ">=0", "<=1"]]},
+            {"name":"MCTol", "kind":"namevalue", "type":[["double", "scalar", ">0"], ["single", "scalar", ">0"]]},
+            {"name":"Asymptotic", "kind":"namevalue", "type":["logical", "scalar"]}
+        ]
+    },
+
+    "andrewsplot":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+
+            {"name":"Standardize", "kind":"namevalue", "type":"choices={'on', 'PCA', 'PCAStd'}"},
+            {"name":"Quantile", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"Group", "kind":"namevalue", "type":[["numeric"], ["categorical"], ["char"], ["cellstr"]]}, 
+        
+            {"name":"properties", "kind":"properties", "type":"matlab.graphics.primitive.Line"}           
+        ]
+    }, 
+
+    "anova1":
+    {
+        "inputs":
+        [
+            {"name":"y", "kind":"required"},
+            {"name":"group", "kind":"positional"},
+            {"name":"displayopt", "kind":"ordered", "type":"choices={'off', 'on'}"}
+        ]
+    },
+
+    "anova2":
+    {
+        "inputs":
+        [
+            {"name":"y", "kind":"required"},
+            {"name":"reps", "kind":"positional", "type":"numeric"},
+            {"name":"displayopt", "kind":"ordered", "type":"choices={'off', 'on'}"}
+        ]
+    },
+
+    "anovan":
+    {
+        "inputs":
+        [
+            {"name":"y", "kind":"required", "type":[["double", "vector"], ["single", "vector"]]},
+            {"name":"group", "kind":"required", "type":"cell"},
+
+            {"name":"alpha", "kind":"namevalue", "type":[["double", "scalar", ">=0", "<=1"], ["single", "scalar", ">=0", "<=1"]]},
+            {"name":"continuous", "kind":"namevalue", "type":[["double", "vector", "integer", ">=0"], ["single", "vector", "integer", ">=0"]]},
+            {"name":"display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"model", "kind":"namevalue", "type":[["choices={'linear', 'interaction', 'full'}"], ["numeric", "integer"]]},
+            {"name":"nested", "kind":"namevalue", "type":[["double", "integer", ">=0", "<=1"], ["single", "integer", ">=0", "<=1"]]},
+            {"name":"random", "kind":"namevalue", "type":[["double", "vector", "integer", ">=0"], ["single", "vector", "integer", ">=0"]]},
+            {"name":"sstype", "kind":"namevalue", "type":"choices={1, 2, 3, 'h'}"},
+            {"name":"varnames", "kind":"namevalue", "type":[["char", "vector"], ["cellstr"]]}
+        ]
+    },
+
+    "ansaribradley":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":[["double"], ["single"]]},
+            {"name":"y", "kind":"required", "type":[["double"], ["single"]]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":[["double", "scalar", ">=0", "<=1"], ["single", "scalar", ">=0", "<=1"]]},
+            {"name":"Dim", "kind":"namevalue", "type":[["double", "integer", ">0"], ["single", "integer", ">0"]]},
+            {"name":"Tail", "kind":"namevalue", "type":"choices={'both', 'left', 'right'}"},
+            {"name":"Method", "kind":"namevalue", "type":"choices={'exact', 'approximate'}"}
+        ]
+    },
+
+    "aoctool":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"y", "kind":"required"},
+            {"name":"group", "kind":"required"},
+            {"name":"alpha", "kind":"positional", "type":"numeric"},
+            {"name":"xname", "kind":"positional", "type":"char"},
+            {"name":"yname", "kind":"positional", "type":"char"},
+            {"name":"gname", "kind":"positional", "type":"char"},
+            {"name":"displayopt", "kind":"positional", "type":"choices={'off', 'on'}"},
+            {"name":"model", "kind":"ordered", "type":[["choices={'same mean', 'separate means', 'same line', 'parallel lines', 'separate lines'}"], ["integer", ">=1", "<=5"]]}
+        ]
+    },
+
+    "bbdesign":
+    {
+        "inputs":
+        [
+            {"name":"n", "kind":"required", "type":["integer", ">=3"]},
+
+            {"name":"center", "kind":"namevalue", "type":["integer"]},
+            {"name":"blocksize", "kind":"namevalue", "type":["integer"]}
+        ]
+    },
+
+    "betacdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"a", "kind":"required"},
+            {"name":"b", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "binocdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"N", "kind":"required"},
+            {"name":"p", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "biplot":
+    {
+        "inputs":
+        [
+            {"name":"coefs", "kind":"required", "type":"numeric"},
+
+            {"name":"Scores", "kind":"namevalue", "type":"numeric"},
+            {"name":"VarLabels", "kind":"namevalue", "type":[["char", "vector"], ["cellstr"]]},
+            {"name":"ObsLabels", "kind":"namevalue", "type":[["char", "vector"], ["cellstr"]]},
+            {"name":"Positive", "kind":"namevalue", "type":["logical", "scalar"]},
+
+            {"name":"properties", "kind":"properties", "type":"matlab.graphics.primitive.Line"}            
+        ]
+    },
+
+    "bootci":
+    {
+        "inputs":
+        [
+            {"name":"nboot", "kind":"required", "type":["integer", ">0"]},
+            {"name":"bootfun", "kind":"required", "type":"function_handle"},
+
+            {"name":"alpha", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+            {"name":"type", "kind":"namevalue", "type":[["choices={'normal', 'percentile', 'corrected percentile', 'bca', 'student'}"], ["char"]]},
+            {"name":"nbootstd", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"stderr", "kind":"namevalue", "type":"function_handle"},
+            {"name":"Weights", "kind":"namevalue", "type":["vector", ">=0"]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "bootstrp":
+    {
+        "inputs":
+        [
+            {"name":"nboot", "kind":"required", "type":["integer", ">0"]},
+            {"name":"bootfun", "kind":"required", "type":"function_handle"},
+            {"name":"d1", "kind":"required", "type":"numeric"},
+
+            {"name":"Weights", "kind":"namevalue", "type":["vector", ">=0"]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+	"boxplot":
+	{
+		"inputs":
+		[
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+						{"name":"x", "kind":"required", "type":[["single"], ["double"]]}
+                    ],
+                    [
+                        {"name":"x", "kind":"required", "type":[["single"], ["double"]]},
+                        {"name":"g", "kind":"required", "type":[["single", "vector"], ["double", "vector"], ["categorical"], ["cell"], ["char"]]}
+                    ],
+
+                    [
+                        {"name":"ax", "kind":"required", "type":"matlab.graphics.axis.Axes"},
+                        {"name":"x", "kind":"required", "type":[["single"], ["double"]]}
+                    ],
+                    [
+                        {"name":"ax", "kind":"required", "type":"matlab.graphics.axis.Axes"},
+                        {"name":"x", "kind":"required", "type":[["single"], ["double"]]},
+                        {"name":"g", "kind":"required", "type":[["single", "vector"], ["double", "vector"], ["categorical"], ["cell"], ["char"]]}
+                    ]
+                ]
+            },
+            {"name":"BoxStyle", "kind":"namevalue", "type":"choices={'outline', 'filled'}"},
+            {"name":"Colors", "kind":"namevalue", "type":[["choices={'y', 'm', 'c', 'r', 'g', 'b', 'w', 'k'}"], ["numeric", ">=0", "<=1"], ["char"]]},
+            {"name":"MedianStyle", "kind":"namevalue", "type":"choices={'line', 'target'}"},
+            {"name":"Notch", "kind":"namevalue", "type":"choices={'off', 'on', 'marker'}"},
+            {"name":"OutlierSize", "kind":"namevalue", "type":[["single", ">0"], ["double", ">0"]]},
+            {"name":"PlotStyle", "kind":"namevalue", "type":"choices={'traditional', 'compact'}"},
+            {"name":"Symbol", "kind":"namevalue", "type":"char"},
+            {"name":"Widths", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"]]},
+            {"name":"ColorGroup", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"], ["categorical"], ["cell"], ["char"]]},
+            {"name":"FactorDirection", "kind":"namevalue", "type":"choices={'data', 'list', 'auto'}"},
+            {"name":"FullFactors", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"FactorGap", "kind":"namevalue", "type":[["choices={'auto'}"],["single", "vector", ">0"], ["double", "vector", ">0"]]},
+            {"name":"FactorSeparator", "kind":"namevalue", "type":[["choices={'auto'}"],["single", "integer", "vector", ">0"], ["double", "integer", "vector", ">0"]]},
+            {"name":"GroupOrder", "kind":"namevalue", "type":[["categorical"], ["cell"], ["cellstr"]]},
+            {"name":"DataLim", "kind":"namevalue", "type":[["single", "vector", "numel=2"], ["double", "vector", "numel=2"]]},
+            {"name":"ExtremeMode", "kind":"namevalue", "type":"choices={'clip', 'compress'}"},
+            {"name":"Jitter", "kind":"namevalue", "type":[["single"], ["double"]]},
+            {"name":"Whisker", "kind":"namevalue", "type":[["single", ">0"], ["double", ">0"]]},
+            {"name":"Labels", "kind":"namevalue", "type":[["single"], ["double"], ["cell"], ["char"]]},
+            {"name":"LabelOrientation", "kind":"namevalue", "type":"choices={'inline', 'horizontal'}"},
+            {"name":"LabelVerbosity", "kind":"namevalue", "type":"choices={'all', 'minor', 'majorminor'}"},
+            {"name":"Orientation", "kind":"namevalue", "type":"choices={'vertical', 'horizontal'}"},
+			{"name":"Positions", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"]]}
+        ]
+    },
+
+    "candexch":
+    {
+        "inputs":
+        [
+            {"name":"C", "kind":"required", "type":"numeric"},
+            {"name":"nrows", "kind":"required", "type":["integer", "scalar", ">=0"]},
+
+            {"name":"display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"init", "kind":"namevalue", "type":"numeric"},
+            {"name":"maxiter", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"options", "kind":"namevalue", "type":"struct"},
+            {"name":"start", "kind":"namevalue", "type":"numeric"},
+            {"name":"tries", "kind":"namevalue", "type":["integer", ">0"]}
+        ]
+    },
+
+    "candgen":
+    {
+        "inputs":
+        [
+            {"name":"nfactors", "kind":"required", "type":"integer"},
+            {"name":"model", "kind":"required", "type":"choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"},
+            {"name":"bounds", "kind":"namevalue", "type":[["numeric"], ["cell"]]},
+            {"name":"levels", "kind":"namevalue", "type":"integer"},
+            {"name":"categorical", "kind":"namevalue"}
+        ]
+    },
+
+    "ccdesign":
+    {
+        "inputs":
+        [
+            {"name":"n", "kind":"required", "type":["integer", ">=2"]},
+
+            {"name":"center", "kind":"namevalue", "type":[["choices={'uniform', 'orthogonal'}"], ["integer"]]},
+            {"name":"fraction", "kind":"namevalue", "type":"choices={0, 1, 2, 3, 4}"},
+            {"name":"type", "kind":"namevalue", "type":[["choices={'circumscribed', 'inscribed', 'faced'}"], ["char"]]},
+            {"name":"blocksize", "kind":"namevalue", "type":["integer"]}
+        ]
+    },
+
+    "cdf":
+    {
+        "inputs":
+        [
+            {"name":"name", "kind":"required", "type":[["choices={'Beta', 'Binomial', 'Burr', 'Chisquare', 'Exponential', 'Extreme Value', 'F', 'Gamma', 'Generalized Extreme Value', 'Generalized Pareto', 'Geometric', 'Half Normal', 'Hypergeometric', 'Lognormal', 'Negative Binomial', 'Noncentral F', 'Noncentral t', 'Noncentral Chi-square', 'Normal', 'Poisson', 'Rayleigh', 'Stable', 'T', 'Uniform', 'Discrete Uniform', 'Weibull'}"], ["char"]]},
+            {"name":"x", "kind":"required"},
+            {"name":"A", "kind":"ordered"},
+            {"name":"B", "kind":"ordered"},
+            {"name":"C", "kind":"ordered"},
+            {"name":"D", "kind":"ordered"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "gmdistribution.cdf":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"gmdistribution"},
+            {"name":"x", "kind":"required"}
+        ]
+    },
+
+    "piecewisedistribution.cdf":
+    {
+        "inputs":
+        [
+            {"name":"obj", "kind":"required", "type":"piecewisedistribution"},
+            {"name":"x", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "chi2cdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"v", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "chi2gof":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"NBins", "kind":"namevalue", "type":[["single", "integer", ">0"], ["double", "integer", ">0"]]},
+            {"name":"Ctrs", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"]]},
+            {"name":"Edges", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"]]},
+            {"name":"CDF", "kind":"namevalue", "type":[["prob.ProbabilityDistribution"], ["function_handle"], ["cell"]]},
+            {"name":"Expected", "kind":"namevalue", "type":[["single", "vector", ">=0"], ["double", "vector", ">=0"]]},
+            {"name":"NParams", "kind":"namevalue", "type":[["single", "integer", ">0"], ["double", "integer", ">0"]]},
+            {"name":"EMin", "kind":"namevalue", "type":[["single", "integer", ">=0"], ["double", "integer", ">=0"]]},
+            {"name":"Frequency", "kind":"namevalue", "type":[["single", "vector", "integer", ">=0"], ["double", "vector", "integer", ">=0"]]},
+            {"name":"Alpha", "kind":"namevalue", "type":[["single", "scalar", ">=0", "<=1"], ["double", "scalar", ">=0", "<=1"]]}
+        ]
+    },
+
+    "classify":
+    {
+        "inputs":
+        [
+            {"name":"sample", "kind":"required"},
+            {"name":"training", "kind":"required"},
+            {"name":"group", "kind":"required"},
+            {"name":"type", "kind":"positional", "type":"choices={'linear', 'quadratic', 'diagLinear', 'diagQuadratic', 'mahalanobis'}"},
+            {"name":"prior", "kind":"ordered"}
+        ]
+    },
+
+	"cluster":
+	{
+		"inputs":
+		[
+			{"name":"Z", "kind":"required", "type":"numeric"},
+
+            {"name":"cutoff", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"depth", "kind":"namevalue", "type":["numeric", "scalar", ">=1"]},
+            {"name":"criterion", "kind":"namevalue", "type":"choices={'inconsistent', 'distance'}"},
+            {"name":"maxclust", "kind":"namevalue", "type":"numeric"}
+        ]
+    },
+
+	"clusterdata":
+	{
+		"inputs":
+		[
+			{"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"cutoff_argument", "kind":"ordered", "type":["numeric", ">0"]},
+
+            {"name":"criterion", "kind":"namevalue", "type":"choices={'inconsistent', 'distance'}"},
+            {"name":"cutoff", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"depth", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"distance", "kind":"namevalue", "type":[["choices={'euclidean', 'squaredeuclidean', 'seuclidean', 'cityblock', 'minkowski', 'chebychev', 'mahalanobis', 'cosine', 'correlation', 'spearman', 'hamming', 'jaccard'}"], ["function_handle"]]},
+            {"name":"linkage", "kind":"namevalue", "type":"choices={'average', 'centroid', 'complete', 'median', 'single', 'ward', 'weighted'}"},
+            {"name":"maxclust", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"savememory", "kind":"namevalue", "type":"choices={'on', 'off'}"}
+        ]
+    },
+
+	"confusionmat":
+	{
+		"inputs":
+		[
+			{"name":"group", "kind":"required", "type":[["numeric"], ["logical"], ["categorical"], ["cellstr"], ["char"]]},
+			{"name":"grouphat", "kind":"required", "type":[["numeric"], ["logical"], ["categorical"], ["cellstr"], ["char"]]},
+
+            {"name":"order", "kind":"namevalue", "type":[["numeric"], ["logical"], ["categorical"], ["cellstr"], ["char"]]}
+        ]
+    },
+
+	"controlchart":
+	{
+		"inputs":
+		[
+			{"name":"X", "kind":"required", "type":"numeric"},
+			{"name":"group", "kind":"ordered", "type":[["numeric", "vector"], ["char"], ["cellstr"], ["categorical"], ["cell"]]},
+
+            {"name":"charttype", "kind":"namevalue", "type":[["choices={'xbar', 's', 'r', 'ewma', 'i', 'mr', 'ma', 'p', 'np', 'u', 'c'}"], ["cell"], ["cellstr"], ["char"]]},
+            {"name":"display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"label", "kind":"namevalue", "type":[["cellstr"], ["char"]]},
+            {"name":"lambda", "kind":"namevalue", "type":["numeric", ">=0", "<=1"]},
+            {"name":"limits", "kind":"namevalue", "type":["numeric", "vector", "numel=3"]},
+            {"name":"mean", "kind":"namevalue", "type":"numeric"},
+            {"name":"nsigma", "kind":"namevalue", "type":"numeric"},
+            {"name":"parent", "kind":"namevalue", "type":"matlab.graphics.axis.Axes"},
+            {"name":"rules", "kind":"namevalue", "type":[["cellstr"], ["char"]]},
+            {"name":"sigma", "kind":"namevalue", "type":[["choices={'std', 'range', 'variance'}"], ["numeric"], ["char"]]},
+            {"name":"specs", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"unit", "kind":"namevalue", "type":"numeric"},
+            {"name":"width", "kind":"namevalue", "type":"numeric"}
+        ]
+    },
+
+	"controlrules":
+	{
+		"inputs":
+		[
+            {"name":"rules", "kind":"required", "type":"choices={'we1', 'we2', 'we3', 'we4', 'we5', 'we6', 'we7', 'we8', 'we9', 'we10', 'n1', 'n2', 'n3', 'n4', 'n5', 'n6', 'n8', 'n8', 'we', 'n'}"},
+			{"name":"x", "kind":"required"},
+			{"name":"cl", "kind":"required"},
+			{"name":"se", "kind":"required"}
+        ]
+    },
+
+	"copulacdf":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Gaussian'}"},
+			{"name":"u", "kind":"required"},
+            {"name":"rho", "kind":"required"}
+        ]
+    },
+
+	"copulacdf":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'t'}"},
+			{"name":"u", "kind":"required"},
+            {"name":"rho", "kind":"required"},
+			{"name":"nu", "kind":"required"}
+        ]
+    },
+
+	"copulacdf":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Clayton', 'Frank', 'Gumbel'}"},
+			{"name":"u", "kind":"required"},
+            {"name":"alpha", "kind":"required"}
+        ]
+    },
+
+	"copulafit":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Gaussian', 't', 'Clayton', 'Frank', 'Gumbel'}"},
+			{"name":"u", "kind":"required", "type":[["single", ">=0", "<=1"], ["double", ">=0", "<=1"]]},
+            {"name":"Alpha", "kind":"namevalue", "type":[["single", "scalar", ">=0", "<=1"], ["double", "scalar", ">=0", "<=1"]]},
+            {"name":"Method", "kind":"namevalue", "type":"choices={'ML', 'ApproximateML'}"},
+            {"name":"Options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+	"copulaparam":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'t'}"},
+			{"name":"r", "kind":"required"},
+			{"name":"nu", "kind":"required"},
+
+            {"name":"Type", "kind":"namevalue", "type":"choices={'Kendall', 'Spearman'}"}
+        ]
+    },
+
+	"copulaparam":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Gaussian', 'Clayton', 'Frank', 'Gumbel'}"},
+			{"name":"r", "kind":"required"},
+
+            {"name":"Type", "kind":"namevalue", "type":"choices={'Kendall', 'Spearman'}"}
+        ]
+    },
+
+	"copulapdf":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Gaussian'}"},
+			{"name":"u", "kind":"required"},
+            {"name":"rho", "kind":"required"}
+        ]
+    },
+
+	"copulapdf":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'t'}"},
+			{"name":"u", "kind":"required"},
+            {"name":"rho", "kind":"required"},
+			{"name":"nu", "kind":"required"}
+        ]
+    },
+
+	"copulapdf":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Clayton', 'Frank', 'Gumbel'}"},
+			{"name":"u", "kind":"required"},
+            {"name":"alpha", "kind":"required"}
+        ]
+    },
+
+	"copularnd":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Gaussian'}"},
+            {"name":"rho", "kind":"required"},
+			{"name":"n", "kind":"required"}
+        ]
+    },
+
+	"copularnd":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'t'}"},
+			{"name":"rho", "kind":"required"},
+            {"name":"nu", "kind":"required"},
+			{"name":"n", "kind":"required"}
+        ]
+    },
+
+	"copularnd":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Clayton', 'Frank', 'Gumbel'}"},
+			{"name":"alpha", "kind":"required"},
+            {"name":"n", "kind":"required"}
+        ]
+    },
+
+	"copulastat":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Gaussian'}"},
+			{"name":"rho", "kind":"required"},
+
+            {"name":"Type", "kind":"namevalue", "type":"choices={'Kendall', 'Spearman'}"}
+        ]
+    },
+
+	"copulastat":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'t'}"},
+			{"name":"rho", "kind":"required"},
+			{"name":"nu", "kind":"required"},
+
+            {"name":"Type", "kind":"namevalue", "type":"choices={'Kendall', 'Spearman'}"}
+        ]
+    },
+
+	"copulastat":
+	{
+		"inputs":
+		[
+			{"name":"family", "kind":"required", "type":"choices={'Clayton', 'Frank', 'Gumbel'}"},
+			{"name":"alpha", "kind":"required"},
+
+            {"name":"Type", "kind":"namevalue", "type":"choices={'Kendall', 'Spearman'}"}
+        ]
+    },
+
+    "cordexch":
+    {
+        "inputs":
+        [
+            {"name":"nfactors", "kind":"required", "type":["numeric", "integer", ">=0"]},
+            {"name":"nruns", "kind":"required", "type":["numeric", "integer", ">=0"]},
+
+            {"name":"model", "kind":"positional", "type":[["choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"], ["char"], ["numeric"]]},
+
+            {"name":"bounds", "kind":"namevalue", "type":[["numeric"], ["cell"]]},
+            {"name":"categorical", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"excludefun", "kind":"namevalue", "type":"function_handle"},
+            {"name":"init", "kind":"namevalue", "type":"numeric"},
+            {"name":"levels", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"maxiter", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"tries", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "corr":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"}
+        ]
+    },
+
+    "corr":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"required", "type":"numeric"},
+            {"name":"type", "kind":"namevalue", "type":"choices={'Pearson', 'Kendall', 'Spearman'}"},
+            {"name":"rows", "kind":"namevalue", "type":"choices={'all', 'complete', 'pairwise'}"},
+            {"name":"tail", "kind":"namevalue", "type":"choices={'both', 'right', 'left'}"}
+        ]
+    },
+
+    "coxphfit":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"double"},
+            {"name":"T", "kind":"required", "type":[["single"], ["double"]]},
+
+            {"name":"B0", "kind":"namevalue", "type":["double", "vector"]},
+            {"name":"Baseline", "kind":"namevalue", "type":["double", "scalar"]},
+            {"name":"Censoring", "kind":"namevalue", "type":["logical", "vector"]},
+            {"name":"Frequency", "kind":"namevalue", "type":["double", "vector", ">=0"]},
+            {"name":"Strata", "kind":"namevalue", "type":[["single"], ["double"]]},
+            {"name":"Ties", "kind":"namevalue", "type":"choices={'breslow', 'efron'}"},
+            {"name":"Options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "createns":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+
+            {"name":"NSMethod", "kind":"namevalue", "type":"choices={'kdtree', 'exhaustive'}"},
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'cityblock', 'chebychev', 'minkowski', 'seuclidean', 'mahalanobis', 'cosine', 'correlation', 'spearman', 'hamming', 'jaccard'}"], ["char"], ["function_handle"]]},
+            {"name":"P", "kind":"namevalue", "type":["scalar", ">0"]},
+            {"name":"Cov", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"Scale", "kind":"namevalue", "type":["numeric", "vector", ">=0"]},
+            {"name":"BucketSize", "kind":"namevalue", "type":["integer", ">0"]}
+        ]
+    },
+
+	"crossval":
+	{
+		"inputs":
+		[
+    		{"name":"fun", "kind":"required", "type":"function_handle"},
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"ordered", "type":"numeric"},
+
+            {"name":"holdout", "kind":"namevalue", "type":"scalar"},
+            {"name":"kfold", "kind":"namevalue", "type":["integer", ">1"]},
+            {"name":"leaveout", "kind":"namevalue", "type":"choices={1}"},
+            {"name":"mcreps", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"partition", "kind":"namevalue", "type":"cvpartition"}, 
+            {"name":"stratify", "kind":"namevalue", "type":["column", "vector"]}, 
+            {"name":"options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+	"crossval":
+	{
+		"inputs":
+		[
+            {"name":"criterion", "kind":"required", "type":"choices={'mse', 'mcr'}"},
+            {"name":"X", "kind":"required", "type":"numeric", "repeating":true},
+            {"name":"y", "kind":"required", "type":"numeric"},
+
+            {"name":"Predfun", "kind":"namevalue", "type":"function_handle"},
+            {"name":"holdout", "kind":"namevalue", "type":"scalar"},
+            {"name":"kfold", "kind":"namevalue", "type":["integer", ">1"]},
+            {"name":"leaveout", "kind":"namevalue", "type":"choices={1}"},
+            {"name":"mcreps", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"partition", "kind":"namevalue", "type":"cvpartition"}, 
+            {"name":"stratify", "kind":"namevalue", "type":["column", "vector"]}, 
+            {"name":"options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+	"cvpartition":
+	{
+		"inputs":
+		[
+            {"name":"n_or_group", "kind":"required", "type":[["numeric"], ["categorical"], ["char"], ["cellstr"]]},
+            {"name":"kfold", "kind":"required", "type":"choices={'KFold'}"},
+            {"name":"k", "kind":"required"}
+        ]
+    },
+
+	"cvpartition":
+	{
+		"inputs":
+		[
+            {"name":"n_or_group", "kind":"required", "type":[["numeric"], ["categorical"], ["char"], ["cellstr"]]},
+            {"name":"holdout", "kind":"required", "type":"choices={'HoldOut'}"},
+            {"name":"p", "kind":"required"}
+        ]
+    },
+
+	"cvpartition":
+	{
+		"inputs":
+		[
+            {"name":"n", "kind":"required", "type":"numeric"},
+            {"name":"leaveout", "kind":"required", "type":"choices={'LeaveOut'}"}
+        ]
+    },
+
+	"cvpartition":
+	{
+		"inputs":
+		[
+            {"name":"n", "kind":"required", "type":"numeric"},
+            {"name":"resubstitution", "kind":"required", "type":"choices={'resubstitution'}"}
+        ]
+    },
+
+    "datasample":
+    {
+        "inputs":
+        [
+            {"name":"s", "kind":"ordered", "type":[["struct"], ["RandStream"]]},
+
+            {"name":"data", "kind":"required", "type":"numeric"},
+            {"name":"k", "kind":"required", "type":["integer", ">0"]},
+
+            {"name":"dim", "kind":"ordered", "type":["integer", ">0"]},
+
+            {"name":"Replace", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"Weights", "kind":"namevalue", "type":["vector", ">=0"]}
+        ]
+    }, 
+
+    "daugment":
+	{
+		"inputs":
+		[ 
+            {"name":"dce", "kind":"required"},
+            {"name":"mruns", "kind":"required"},
+            {"name":"model", "kind":"positional", "type":[["choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"], []]}
+        ]
+    },
+
+    "daugment":
+	{
+		"inputs":
+		[ 
+            {"name":"dce", "kind":"required"},
+            {"name":"mruns", "kind":"required"},
+            {"name":"model", "kind":"required", "type":[["choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"], []]},
+
+            {"name":"display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"init", "kind":"namevalue"},
+            {"name":"maxiter", "kind":"namevalue", "type":"numeric"},
+            {"name":"tries", "kind":"namevalue", "type":"numeric"}, 
+            {"name":"bounds", "kind":"namevalue", "type":[["cell"], ["numeric"]]},
+            {"name":"levels", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"excludefun", "kind":"namevalue", "type":"function_handle"},
+            {"name":"categorical", "kind":"namevalue"},
+            {"name":"options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "dbscan":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["single"], ["double"], ["logical"]]},
+            {"name":"epsilon", "kind":"required", "type":["numeric", "scalar", ">=0"]},
+            {"name":"minpts", "kind":"required", "type":["numeric", "scalar", ">0"]},
+
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'seuclidean', 'mahalanobis', 'cityblock', 'minkowski', 'chebychev', 'cosine', 'correlation', 'hamming', 'jaccard', 'spearman'}"], ["char"], ["function_handle"]]},
+            {"name":"Cov", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"P", "kind":"namevalue", "type":["scalar", ">0"]},
+            {"name":"Scale", "kind":"namevalue", "type":["numeric", "vector", ">=0"]}
+        ]
+    },
+
+    "dcovary":
+	{
+		"inputs":
+		[ 
+            {"name":"nfactors", "kind":"required"},
+            {"name":"fixed", "kind":"required"},
+            {"name":"model", "kind":"positional", "type":[["choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"], []]},
+
+            {"name":"bounds", "kind":"namevalue", "type":[["cell"], ["numeric"]]},
+            {"name":"categorical", "kind":"namevalue"},
+            {"name":"display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"excludefun", "kind":"namevalue", "type":"function_handle"},
+            {"name":"init", "kind":"namevalue"},
+            {"name":"levels", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"maxiter", "kind":"namevalue", "type":"numeric"},
+            {"name":"options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "dendrogram":
+    {
+        "inputs":
+        [
+            {"name":"tree", "kind":"required", "type":"numeric"},
+
+            {"name":"P", "kind":"ordered", "type":[["single", "integer", ">0"],["double", "integer", ">0"]]},
+
+            {"name":"Reorder", "kind":"namevalue", "type":["integer", "vector", ">=0"]},
+            {"name":"CheckCrossing", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"ColorThreshold", "kind":"namevalue", "type":[["choices={'default'}"], ["scalar", ">=0"]]},
+            {"name":"Orientation", "kind":"namevalue", "type":"choices={'top', 'bottom', 'left', 'right'}"},
+            {"name":"Labels", "kind":"namevalue", "type":[["char"], ["cellstr"]]}
+        ]
+    },
+
+    "dwtest":
+    {
+        "inputs":
+        [
+            {"name":"r", "kind":"required", "type":[["single"], ["double"]]},
+            {"name":"x", "kind":"required", "type":[["single", "vector"], ["double", "vector"]]},
+
+            {"name":"Method", "kind":"namevalue", "type":"choices={'exact', 'approximate'}"},
+            {"name":"Tail", "kind":"namevalue", "type":"choices={'both', 'right', 'left'}"}
+        ]
+    },
+
+    "ecdf":
+    {
+        "inputs":
+        [
+            {"name":"ax", "kind":"ordered", "type":"matlab.graphics.axis.Axes"},
+
+            {"name":"y", "kind":"required", "type":[["single", "vector", "column"], ["double", "vector", "column"]]},
+
+            {"name":"censoring", "kind":"namevalue", "type":["logical", "vector"]},
+            {"name":"frequency", "kind":"namevalue", "type":[["double", "vector", ">=0"], ["double", "vector", ">=0"]]},
+            {"name":"alpha", "kind":"namevalue", "type":[["single", "scalar", ">=0", "<=1"], ["double", "scalar", ">=0", "<=1"]]},
+            {"name":"function", "kind":"namevalue", "type":"choices={'cdf', 'survivor', 'cumulative hazard'}"},
+            {"name":"bounds", "kind":"namevalue", "type":"choices={'off', 'on'}"}
+        ]
+    },
+
+    "evcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"mu", "kind":"ordered"},
+            {"name":"sigma", "kind":"ordered"},
+            {"name":"pcov", "kind":"ordered"},
+            {"name":"alpha", "kind":"ordered"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "expcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"mu", "kind":"ordered"},
+            {"name":"pcov", "kind":"ordered"},
+            {"name":"alpha", "kind":"ordered"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "factoran":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"m", "kind":"required", "type":"numeric"},
+
+            {"name":"xtype", "kind":"namevalue", "type":"choices={'data', 'covariance'}"},
+            {"name":"scores", "kind":"namevalue", "type":"choices={'wls', 'Bartlett', 'regression', 'Thomson'}"},
+            {"name":"start", "kind":"namevalue", "type":[["choices={'random', 'Rsquared'}"], ["numeric"]]},
+            {"name":"rotate", "kind":"namevalue", "type":[["choices={'none', 'equamax', 'orthomax', 'parsimax', 'pattern', 'procrustes', 'promax', 'quartimax', 'varimax',}"], ["function_handle"]]},
+            {"name":"coeff", "kind":"namevalue", "type":["numeric", ">=0", "<=1"]},
+            {"name":"normalize", "kind":"namevalue", "type":"choices={0, 1}"},
+            {"name":"reltol", "kind":"namevalue", "type":"numeric"},
+            {"name":"maxit", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"target", "kind":"namevalue", "type":"numeric"},
+            {"name":"type", "kind":"namevalue", "type":"choices={'oblique', 'orthogonal'}"},
+            {"name":"power", "kind":"namevalue", "type":["numeric", ">=0"]},
+            {"name":"userargs", "kind":"namevalue"},
+            {"name":"nobs", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"delta", "kind":"namevalue", "type":"numeric"},
+            {"name":"optimopts", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "fcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"v1", "kind":"required"},
+            {"name":"v2", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+   "fishertest":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":[["integer", ">=0"], ["table"]]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":[["single", "scalar", ">=0", "<=1"], ["double", "scalar", ">=0", "<=1"]]},
+            {"name":"Tail", "kind":"namevalue", "type":"choices={'both', 'right', 'left'}"}
+        ]
+    },
+
+   "fitdist":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":[["single", "column", "vector"], ["double", "column", "vector"]]},
+            {"name":"distname", "kind":"required", "type":[["choices={'Beta', 'Binomial', 'BirnbaumSaunders', 'Burr', 'Exponential', 'ExtremeValue', 'Gamma', 'GeneralizedExtremeValue', 'GeneralizedPareto', 'HalfNormal', 'InverseGaussian', 'Kernel', 'Logistic', 'Loglogistic', 'Lognormal', 'Nakagami', 'NegativeBinomial', 'Normal', 'Poisson', 'Rayleigh', 'Rician', 'Stable', 'tLocationScale', 'Weibull'}"], ["char"]]},
+ 
+            {"name":"By", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"], ["logical", "vector"], ["categorical"], ["cellstr"], ["char"]]},
+            {"name":"Censoring", "kind":"namevalue", "type":["logical", "vector"]},
+            {"name":"Frequency", "kind":"namevalue", "type":["integer", "vector", ">=0"]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"},
+            {"name":"NTrials", "kind":"namevalue", "type":[["single", "integer", ">0"], ["double", "integer", ">0"]]},
+            {"name":"Theta", "kind":"namevalue", "type":[["double", "scalar"], ["single", "scalar"]]},
+            {"name":"Kernel", "kind":"namevalue", "type":"choices={'normal', 'box', 'triangle', 'epanechnikov'}"},
+            {"name":"Support", "kind":"namevalue", "type":[["choices={'unbounded', 'positive'}"], ["single", "vector", "numel=2"], ["double", "vector", "numel=2"]]},
+            {"name":"Width", "kind":"namevalue", "type":[["double", "scalar"], ["single", "scalar"]]}
+        ]
+    },
+
+   "fitgmdist":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"k", "kind":"required", "type":["integer", ">0"]},
+
+            {"name":"CovarianceType", "kind":"namevalue", "type":"choices={'full', 'diagonal'}"},
+            {"name":"Options", "kind":"namevalue", "type":"struct"},
+            {"name":"ProbabilityTolerance", "kind":"namevalue", "type":["numeric", "scalar", ">=0"]},
+            {"name":"RegularizationValue", "kind":"namevalue", "type":["numeric", "scalar", ">=0"]},
+            {"name":"Replicates", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"SharedCovariance", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"Start", "kind":"namevalue", "type":[["choices={'plus', 'randSample'}"], ["struct"], ["integer"]]}
+        ]
+    },
+
+   "fracfact":
+    {
+        "inputs":
+        [
+            {"name":"gen", "kind":"required", "type":[["char"], ["cellstr"]]},
+ 
+            {"name":"FactorNames", "kind":"namevalue", "type":"cellstr"},
+            {"name":"MaxInt", "kind":"namevalue", "type":["integer", ">0"]}
+        ]
+    },
+
+   "friedman":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"},
+            {"name":"reps", "kind":"required", "type":["integer", ">0"]},
+
+            {"name":"displayopt", "kind":"ordered", "type":"choices={'on', 'off'}"}
+        ]
+    },
+
+    "fsulaplacian":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["single"], ["double"]]},
+            {
+                "mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"Similarity", "kind":"namevalue", "type":["double", "single"]}
+                    ],
+                    [
+                        {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'cityblock', 'chebychev', 'minkowski', 'seuclidean', 'mahalanobis', 'cosine', 'correlation', 'spearman', 'hamming', 'jaccard'}"], ["char"], ["string"], ["function_handle"]]},
+                        {"name":"P", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+                        {"name":"Cov", "kind":"namevalue", "type":["numeric", ">0"]},
+                        {"name":"Scale", "kind":"namevalue", "type":["numeric", "vector", ">0"]},
+                        {"name":"NumNeighbors", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">0"]},
+                        {"name":"KernelScale", "kind":"namevalue", "type":[["choices={'auto'}"], ["numeric", "scalar", ">0"]]}
+                    ]
+                ]
+            }
+        ]
+    },
+
+    "gagerr":
+	{
+		"inputs":
+		[ 
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"y", "kind":"required", "type":["numeric", "column", "vector"]},
+                        {"name":"{part,operator}", "kind":"required", "type":["cell", "numel=2"]}
+                    ],
+                    [
+						{"name":"y", "kind":"required", "type":["numeric", "column", "vector"]},
+                        {"name":"GROUP", "kind":"required", "type":"numeric"}
+                    ],
+                    [
+						{"name":"y", "kind":"required", "type":["numeric", "column", "vector"]},
+                        {"name":"part", "kind":"required", "type":[["numeric", "vector"], ["categorical"], ["char"], ["cellstr"]]}
+                    ]
+                ]
+            },
+            {"name":"spec", "kind":"namevalue", "type":["numeric", "vector", "numel=2"]},
+            {"name":"printtable", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"printgraph", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"randomoperator", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"model", "kind":"namevalue", "type":"choices={'linear', 'interaction', 'nested'}"}
+        ]
+    },
+
+    "gamcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"a", "kind":"required"},
+            {"name":"b", "kind":"ordered"},
+            {"name":"pcov", "kind":"ordered"},
+            {"name":"alpha", "kind":"ordered"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "geocdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"p", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "gevcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"k", "kind":"required"},
+            {"name":"sigma", "kind":"required"},
+            {"name":"mu", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "glmfit":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"y", "kind":"required", "type":"numeric"},
+            {"name":"distr", "kind":"required", "type":[["choices={'binomial', 'gamma', 'inverse gaussian', 'normal', 'poisson'}"], ["char"]]},
+
+            {"name":"link", "kind":"namevalue", "type":[["choices={'identity', 'log', 'logit', 'probit', 'comploglog', 'reciprocal', 'loglog'}"], ["char"], ["numeric"], ["cell"], ["struct"]]},
+            {"name":"estdisp", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"offset", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"weights", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"constant", "kind":"namevalue", "type":"choices={'off', 'on'}"}
+        ]
+    },
+
+    "glmval":
+    {
+        "inputs":
+        [
+            {"name":"b", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"link", "kind":"required", "type":[["choices={'identity', 'log', 'logit', 'probit', 'comploglog', 'reciprocal', 'loglog'}"], ["char"], ["numeric"], ["cell"], ["struct"]]},
+          
+            {"name":"stats", "kind":"ordered", "type":"struct"},
+  
+            {"name":"confidence", "kind":"namevalue", "type":["scalar", ">=0", "<=1"]},
+            {"name":"size", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"offset", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"constant", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"simultaneous", "kind":"namevalue", "type":["logical", "scalar"]}
+        ]
+    },
+
+    "glyphplot":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},        
+
+            {"name":"glyph", "kind":"namevalue", "type":"choices={'face', 'star'}"},
+            {"name":"features", "kind":"namevalue", "type":["integer", "vector", ">=1", "<=17"]},
+            {"name":"grid", "kind":"namevalue", "type":["integer", "vector", "numel=2"]},
+            {"name":"page", "kind":"namevalue", "type":[["choices={'all', 'scroll'}"], ["numeric", "vector"]]},
+            {"name":"centers", "kind":"namevalue", "type":["numeric"]},
+            {"name":"radius", "kind":"namevalue", "type":["numeric"]},
+            {"name":"obslabels", "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+            {"name":"varlabels", "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+            {"name":"standardize", "kind":"namevalue", "type":[["choices={'column', 'matrix', 'PCA', 'off'}"], ["char"]]},
+            {"name":"Color", "kind":"namevalue", "type":[["choices={'yellow', 'magenta', 'cyan', 'red', 'green', 'blue', 'white', 'black'}"], ["numeric", "vector", "row", "numel=3", ">=0", "<=1"], ["char"]]},
+            {"name":"LineStyle", "kind":"namevalue", "type":"choices={'-', '--', ':', '-.', 'none'}"},
+            {"name":"LineWidth", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"Marker", "kind":"namevalue", "type":[["choices={'none', 'o', '+', '*', '.', 'x', 'square', 'diamond', '^', 'v', '>', '<', 'pentagram', 'hexagram'}"], ["char"]]},
+            {"name":"MarkerSize", "kind":"namevalue", "type":["numeric", ">0"]}
+        ]
+    },
+
+    "gpcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"k", "kind":"required"},
+            {"name":"sigma", "kind":"required"},
+            {"name":"theta", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "gplotmatrix":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"y", "kind":"positional"},
+            {"name":"group", "kind":"positional"},
+            {"name":"clr", "kind":"positional", "type":[["choices={'b', 'g', 'r', 'c', 'm', 'y', 'k', 'w'}"], ["char"]]},
+            {"name":"sym", "kind":"positional", "type":[["choices={'.', 'o', 'x', '+', '*', 's', 'd', 'v', '^', '<', '>', 'p', 'h', '-', ':', '-.', '--'}"], ["char"]]},
+            {"name":"size", "kind":"positional"},
+            {"name":"doleg", "kind":"positional",  "type":"choices={'on', 'off'}"},
+            {"name":"dispopt", "kind":"positional", "type":"choices={'none', 'hist', 'stairs', 'grpbars', 'variable'}"},
+            {"name":"xnam", "kind":"positional", "type":[["cellstr"], ["char"]]},
+            {"name":"ynam", "kind":"ordered", "type":[["cellstr"], ["char"]]}
+        ]
+    },
+
+    "grpstats":
+	{
+		"inputs":
+		[ 
+            {"name":"tbl", "kind":"required", "type":[["table"], ["dataset"]]},
+            {"name":"groupvar", "kind":"required", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(tbl)"], ["cellstr"], ["vector", "integer", ">0"], ["logical", "vector"], ["char"]]}
+        ]
+    },
+
+    "grpstats":
+	{
+		"inputs":
+		[ 
+            {"name":"tbl", "kind":"required", "type":[["table"], ["dataset"]]},
+            {"name":"groupvar", "kind":"required", "type":[["choices=matlab.internal.tabular.functionsignatures.keyChoices(tbl)"], ["cellstr"], ["vector", "integer", ">0"], ["logical", "vector"], ["char"]]},
+
+            {"name":"whichstats", "kind":"required", "type":[["choices={'mean', 'sem', 'numel', 'gname', 'std', 'var', 'min', 'max', 'range', 'meanci', 'predci'}"], ["function_handle"], ["char"]]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["double", "scalar", ">=0", "<=1"]},
+            {"name":"DataVars", "kind":"namevalue", "type":[["choices=tbl.Properties.VariableNames"], ["choices=tbl.Properties.VarNames"], ["logical", "vector"], ["double", "vector", ">0"], ["cellstr"], ["char"]]},
+            {"name":"VarNames", "kind":"namevalue", "type":"cellstr"}
+        ]
+    },
+
+    "grpstats":
+	{
+		"inputs":
+		[ 
+            {"name":"X", "kind":"required", "type":[["double"], ["single"]]},
+            {"name":"group", "kind":"required", "type":[["categorical"], ["logical", "vector"], ["numeric", "vector"], ["datetime", "vector"], ["duration", "vector"], ["cellstr"], ["char"]]}
+        ]
+    },
+
+    "grpstats":
+	{
+		"inputs":
+		[ 
+            {"name":"X", "kind":"required", "type":[["double"], ["single"]]},
+            {"name":"group", "kind":"required", "type":[["categorical"], ["logical", "vector"], ["numeric", "vector"], ["datetime", "vector"], ["duration", "vector"], ["cellstr"], ["char"]]},
+
+            {"name":"whichstats", "kind":"required", "type":[["choices={'mean', 'sem', 'numel', 'gname', 'std', 'var', 'min', 'max', 'range', 'meanci', 'predci'}"], ["function_handle"], ["char"]]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["double", "scalar", ">=0", "<=1"]}
+        ]
+    },
+
+    "gscatter":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"y", "kind":"positional"},
+            {"name":"group", "kind":"positional"},
+            {"name":"clr", "kind":"positional", "type":[["choices={'b', 'g', 'r', 'c', 'm', 'y', 'k', 'w'}"], ["char"], ["numeric", "size=:,3"]]},
+            {"name":"sym", "kind":"positional", "type":[["choices={'.', 'o', 'x', '+', '*', 's', 'd', 'v', '^', '<', '>', 'p', 'h'}"], ["char"]]},
+            {"name":"size", "kind":"positional"},
+            {"name":"doleg", "kind":"positional",  "type":"choices={'on', 'off'}"},
+            {"name":"xnam", "kind":"positional", "type":[["cellstr"], ["char"]]},
+            {"name":"yname", "kind":"ordered", "type":[["cellstr"], ["char"]]}
+        ]
+    },
+
+   "haltonset":
+    {
+        "inputs":
+        [
+            {"name":"d", "kind":"required", "type":"numeric"},
+
+            {"name":"Skip", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"Leap", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"ScrambleMethod", "kind":"namevalue", "type":"struct"}
+         ]
+    },
+
+    "hist3":
+	{    
+		"inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"], ["single"]]},
+            {"name":"nbins or ctrs", "kind":"ordered"},
+
+            {"name":"Edges", "kind":"namevalue", "type":["cell", "numel=2"]},
+            {"name":"nbins", "kind":"namevalue", "type":["numeric", "numel=2"]},
+            {"name":"ctrs", "kind":"namevalue", "type":["cell", "numel=2"]},
+              
+            {"name":"EdgeColor", "kind":"namevalue", "type":[["choices={'none', 'flat', 'interp', 'yellow', 'magenta', 'cyan', 'red', 'green', 'blue', 'white', 'black'}"], ["numeric", "vector", "row", "numel=3", ">=0", "<=1"], ["char"]]},
+            {"name":"LineStyle", "kind":"namevalue", "type":"choices={'-', '--', ':', '-.', 'none'}"},
+            {"name":"FaceColor", "kind":"namevalue", "type":[["choices={'flat', 'interp', 'none', 'texturemap', 'yellow', 'magenta', 'cyan', 'red', 'green', 'blue', 'white', 'black'}"], ["numeric", "vector", "row", "numel=3", ">=0", "<=1"], ["char"]]},
+            {"name":"FaceAlpha", "kind":"namevalue", "type":[["numeric", "scalar", ">=0", "<=1"], ["char"]]},
+            {"name":"FaceLighting", "kind":"namevalue", "type":[["choices={'flat', 'gouraud', 'none'}"], ["char"]]}
+        ]
+    },
+
+   "histfit":
+    {
+        "inputs":
+        [
+            {"name":"data", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"nbins", "kind":"positional", "type":["integer", ">=1"]},
+
+            {"name":"distname", "kind":"ordered", "type":[["choices={'beta', 'birnbaumsaunders', 'exponential', 'extreme value', 'gamma', 'generalized extreme value', 'generalized pareto', 'inverse gaussian', 'logistic', 'loglogistic', 'lognormal', 'nakagami', 'negative binomial', 'normal', 'poisson', 'rayleigh', 'rician', 'tlocationscale', 'weibull'}"], ["char"]]}
+         ]
+    },
+
+   "hmcSampler":
+    {
+        "inputs":
+        [
+            {"name":"logpdf", "kind":"required", "type":"function_handle"},
+            {"name":"startpoint", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"StepSize", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"NumSteps", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"MassVector", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"JitterMethod", "kind":"namevalue", "type":"choices={'jitter-both', 'jitter-numsteps', 'none'}"},
+            {"name":"StepSizeTuningMethod", "kind":"namevalue", "type":"choices={'dual-averaging', 'none'}"},
+            {"name":"MassVectorTuningMethod", "kind":"namevalue", "type":"choices={'iterative-sampling', 'hessian', 'none'}"},
+            {"name":"CheckGradient", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"VariableNames", "kind":"namevalue", "type":"cellstr"},
+            {"name":"UseNumericalGradient", "kind":"namevalue", "type":["logical", "scalar"]}
+         ]
+    },
+
+    "hmmdecode":
+	{
+		"inputs":
+		[ 
+            {"name":"seq", "kind":"required", "type":"numeric"},
+            {"name":"TRANS", "kind":"required", "type":"numeric"},
+            {"name":"EMIS", "kind":"required", "type":"numeric"},
+
+            {"name":"Symbols", "kind":"namevalue", "type":[["numeric", "vector"], ["cellstr"]]}
+        ]
+    },
+
+    "hmmestimate":
+	{
+		"inputs":
+		[ 
+            {"name":"seq", "kind":"required"},
+            {"name":"states", "kind":"required"},
+
+            {"name":"Symbols", "kind":"namevalue", "type":[["numeric"], ["cellstr"]]},
+            {"name":"Statenames", "kind":"namevalue", "type":[["numeric"], ["cellstr"]]},
+            {"name":"Pseudoemissions", "kind":"namevalue", "type":"numeric"},
+            {"name":"Pseudotransitions", "kind":"namevalue", "type":"numeric"}
+        ]
+    },
+
+    "hmmgenerate":
+	{
+		"inputs":
+		[ 
+            {"name":"len", "kind":"required", "type":"numeric"},
+            {"name":"TRANS", "kind":"required", "type":"numeric"},
+            {"name":"EMIS", "kind":"required", "type":"numeric"},
+
+            {"name":"Symbols", "kind":"namevalue", "type":[["numeric"], ["cellstr"]]},
+            {"name":"Statenames", "kind":"namevalue", "type":[["numeric"], ["cellstr"]]}
+        ]
+    },
+
+    "hmmtrain":
+	{
+		"inputs":
+		[ 
+            {"name":"seq", "kind":"required", "type":[["numeric"], ["cell"]]},
+            {"name":"TRGUESS", "kind":"required", "type":"numeric"},
+            {"name":"EMITGUESS", "kind":"required", "type":"numeric"},
+
+            {"name":"Algorithms", "kind":"namevalue", "type":[["choices={'BaumWelch', 'Viterbi'}"], ["char"]]},
+            {"name":"Symbols", "kind":"namevalue", "type":[["numeric"], ["cellstr"]]},
+            {"name":"Tolerance", "kind":"namevalue", "type":"numeric"},
+            {"name":"Maxiterations", "kind":"namevalue", "type":"integer"},
+            {"name":"Verbose", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"Pseudoemissions", "kind":"namevalue", "type":"numeric"},
+            {"name":"Pseudotransitions", "kind":"namevalue", "type":"numeric"}
+        ]
+    },
+
+    "hmmviterbi":
+	{
+		"inputs":
+		[ 
+            {"name":"seq", "kind":"required", "type":"numeric"},
+            {"name":"TRANS", "kind":"required", "type":"numeric"},
+            {"name":"EMIS", "kind":"required", "type":"numeric"},
+
+            {"name":"Symbols", "kind":"namevalue", "type":[["numeric"], ["cellstr"]]},
+            {"name":"Statenames", "kind":"namevalue", "type":[["numeric"], ["cellstr"]]}
+        ]
+    },
+
+    "hygecdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"M", "kind":"required"},
+            {"name":"K", "kind":"required"},
+            {"name":"N", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "interactionplot":
+	{
+		"inputs":
+		[ 
+            {"name":"Y", "kind":"required", "type":"numeric"},
+            {"name":"GROUP", "kind":"required", "type":[["cell"], ["numeric"]]},
+
+            {"name":"varnames", "kind":"namevalue", "type":[["char"], ["cellstr"]]}
+        ]
+    },
+
+    "invpred":
+	{
+		"inputs":
+		[ 
+            {"name":"X", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"Y", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"Y0", "kind":"required", "type":"numeric"},
+
+            {"name":"alpha", "kind":"namevalue", "type":["numeric", ">=0", "<=1"]},
+            {"name":"predopt", "kind":"namevalue", "type":[["choices={'observation', 'curve'}"], ["char"]]}
+        ]
+    },
+
+    "kmeans":
+	{
+		"inputs":
+		[ 
+            {"name":"X", "kind":"required", "type":[["double"], ["single"]]},
+            {"name":"k", "kind":"required", "type":[["double", "integer", ">0"], ["single", "integer", ">0"]]},
+            
+            {"name":"Display", "kind":"namevalue", "type":[["choices={'off', 'final', 'iter'}"], ["char"]]},
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'sqeuclidean', 'cityblock', 'cosine', 'correlation', 'hamming'}"], ["char"]]},
+            {"name":"EmptyAction", "kind":"namevalue", "type":[["choices={'singleton', 'error', 'drop'}"], ["char"]]},
+            {"name":"MaxIter", "kind":"namevalue", "type":[["double", "integer", ">0"], ["single", "integer", ">0"]]},
+            {"name":"OnlinePhase", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"Options", "kind":"namevalue", "type":"struct"},
+            {"name":"Replicates", "kind":"namevalue", "type":[["double", "integer", ">0"], ["single", "integer", ">0"]]},
+            {"name":"Start", "kind":"namevalue", "type":[["choices={'plus', 'cluster', 'sample', 'uniform'}"], ["double"], ["single"], ["char"]]}
+        ]
+    }, 
+
+    "kmedoids":
+	{
+		"inputs":
+		[ 
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"k", "kind":"required", "type":["integer", ">0"]},
+            
+            {"name":"Algorithm", "kind":"namevalue", "type":[["choices={'pam', 'small', 'clara', 'large'}"], ["char"]]},
+            {"name":"OnlinePhase", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'sqeuclidean', 'seuclidean', 'cityblock', 'minkowski', 'chebychev', 'mahalanobis', 'cosine', 'correlation', 'spearman', 'hamming', 'jaccard'}"], ["char"], ["function_handle"]]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"},
+            {"name":"Replicates", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"NumSamples", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"PercentNeighbors", "kind":"namevalue", "type":["scalar", ">=0", "<=0"]},
+            {"name":"Start", "kind":"namevalue", "type":[["choices={'plus', 'cluster', 'sample'}"], ["numeric"], ["char"]]}
+        ]
+    },
+
+    "knnsearch":
+	{
+		"inputs":
+		[ 
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"required", "type":"numeric"},
+            
+            {"name":"K", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"IncludeTies", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"NSMethod", "kind":"namevalue", "type":[["choices={'kdtree', 'exhaustive'}"], ["char"]]},
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'seuclidean', 'cityblock', 'chebychev', 'minkowski', 'mahalanobis', 'cosine', 'correlation', 'spearman', 'hamming', 'jaccard'}"], ["char"], ["function_handle"]]},
+            {"name":"P", "kind":"namevalue", "type":["scalar", ">0"]},
+            {"name":"Cov", "kind":"namevalue", "type":"numeric"},
+            {"name":"Scale", "kind":"namevalue", "type":["vector", ">=0"]},
+            {"name":"BucketSize", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"SortIndices", "kind":"namevalue", "type":["logical", "scalar"]}
+        ]
+    }, 
+
+    "kruskalwallis":
+	{
+		"inputs":
+		[ 
+            {"name":"x", "kind":"required"},
+            {"name":"group", "kind":"positional"},
+            
+            {"name":"displayopt", "kind":"ordered", "type":"choices={'on', 'off'}"}
+        ]
+    },
+
+
+    "ksdensity":
+    {
+        "inputs":
+        [
+            {"name":"ax", "kind":"ordered"},
+
+            {"name":"x", "kind":"required", "type":"numeric"}
+        ]
+    },
+
+    "ksdensity":
+    {
+        "inputs":
+        [
+            {"name":"ax", "kind":"ordered"},
+
+            {"name":"x", "kind":"required", "type":"numeric"},
+            {"name":"pts", "kind":"required", "type":"numeric"},
+
+            {"name":"Bandwidth", "kind":"namevalue", "type":"numeric"},
+            {"name":"BoundaryCorrection", "kind":"namevalue", "type":"choices={'log', 'reflection'}"},  
+            {"name":"Censoring", "kind":"namevalue", "type":"logical"},
+            {"name":"Function", "kind":"namevalue", "type":[["choices={'pdf', 'cdf', 'icdf', 'survivor', 'cumhazard'}"], ["char"]]},    
+            {"name":"Kernel", "kind":"namevalue", "type":[["choices={'normal', 'box', 'triangle', 'epanechnikov'}"], ["char"], ["function_handle"]]},    
+            {"name":"NumPoints", "kind":"namevalue", "type":["numeric", "scalar"]},
+            {"name":"Support", "kind":"namevalue", "type":[["choices={'unbounded', 'positive'}"], ["char"], ["numeric"]]},   
+            {"name":"PlotFcn", "kind":"namevalue", "type":[["choices={'surf', 'contour', 'plot3', 'surfc'}"], ["char"]]},    
+            {"name":"Weights", "kind":"namevalue", "type":["numeric", "vector"]}
+        ]
+    },
+
+   "kstest":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":[["single", "vector"], ["double", "vector"]]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":[["single", "scalar", ">=0", "<=1"], ["double", "scalar", ">=0", "<=1"]]},
+            {"name":"CDF", "kind":"namevalue", "type":[["single"], ["double"]]},
+            {"name":"Tail", "kind":"namevalue", "type":"choices={'unequal', 'larger', 'smaller'}"}
+        ]
+    },
+
+   "kstest2":
+    {
+        "inputs":
+        [
+            {"name":"x1", "kind":"required", "type":[["single", "vector"], ["double", "vector"]]},
+            {"name":"x2", "kind":"required", "type":[["single", "vector"], ["double", "vector"]]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":[["single", "scalar", ">=0", "<=1"], ["double", "scalar", ">=0", "<=1"]]},
+            {"name":"Tail", "kind":"namevalue", "type":"choices={'unequal', 'larger', 'smaller'}"}
+        ]
+    },
+
+   "kurtosis":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"flag", "kind":"positional", "type":"choices={0, 1}"},
+            {"name":"dim", "kind":"ordered"}
+        ]
+    },
+
+   "lasso":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<=1"]},
+            {"name":"CV", "kind":"namevalue", "type":[["choices={'resubstitution'}"], ["integer", "scalar", ">0"], ["cvpartition"]]},
+            {"name":"DFmax", "kind":"namevalue", "type":["numeric", "integer", "scalar", ">0"]},
+            {"name":"Lambda", "kind":"namevalue", "type":["numeric", "vector", ">=0"]},
+            {"name":"LambdaRatio", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<1"]},
+            {"name":"MaxIter", "kind":"namevalue", "type":["numeric", "integer", ">0"]},
+            {"name":"MCReps", "kind":"namevalue", "type":["numeric", "integer", ">0"]},
+            {"name":"NumLambda", "kind":"namevalue", "type":["numeric", "integer", ">0"]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"},
+            {"name":"PredictorNames", "kind":"namevalue", "type":"cellstr"},
+            {"name":"RelTol", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"Standardize", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"Weights", "kind":"namevalue", "type":["numeric", "vector", ">=0"]}
+        ]
+    },
+
+    "lassoPlot":
+     {
+         "inputs":
+         [
+             {"name":"B", "kind":"required", "type":"numeric"}
+         ]
+     },
+
+   "lassoPlot":
+    {
+        "inputs":
+        [
+            {"name":"B", "kind":"required", "type":"numeric"},
+
+            {"name":"FitInfo", "kind":"required", "type":[["struct"], ["numeric", "vector"]]},
+
+            {"name":"Parent", "kind":"namevalue", "type":"matlab.graphics.axis.Axes"},
+            {"name":"PlotType", "kind":"namevalue", "type":[["choices={'L1', 'Lambda', 'CV'}"], ["char"]]},
+            {"name":"PredictorNames", "kind":"namevalue", "type":"cellstr"},
+            {"name":"XScale", "kind":"namevalue", "type":[["choices={'linear', 'log'}"], ["char"]]}
+        ]
+    },
+
+   "leverage":
+    {
+        "inputs":
+        [
+            {"name":"data", "kind":"required"},
+            {"name":"model", "kind":"positional", "type":"choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"}
+        ]
+    },
+
+   "lhsdesign":
+    {
+        "inputs":
+        [
+            {"name":"n", "kind":"required", "type":"numeric"},
+            {"name":"p", "kind":"required", "type":"numeric"},
+
+            {"name":"smooth", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"criterion", "kind":"namevalue", "type":[["choices={'none', 'maximin', 'correlation'}"], ["char"]]},
+            {"name":"iterations", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=0"]}
+        ]
+    },
+
+   "lhsnorm":
+    {
+        "inputs":
+        [
+            {"name":"mu", "kind":"required"},
+            {"name":"sigma", "kind":"required"},
+            {"name":"n", "kind":"required"},
+            {"name":"flag", "kind":"positional", "type":"choices={'on', 'off'}"}
+        ]
+    },
+
+    "lillietest":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+            {"name":"Distr", "kind":"namevalue", "type":[["choices={'norm', 'exp', 'ev'}"], ["char"]]},
+            {"name":"MCTol", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]}
+        ]
+    },
+
+    "lime.lime":
+    {
+        "inputs":
+        [
+            {
+               "mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"blackbox", "kind":"required", "type":[["classreg.learning.Predictor"],["function_handle"]]}
+                    ],
+                    [
+                        {"name":"blackbox", "kind":"required", "type":[["classreg.learning.Predictor"],["function_handle"]]},
+                        {"name":"Tbl", "kind":"required", "type":"table"}
+                    ],
+                    [
+                        {"name":"blackbox", "kind":"required", "type":[["classreg.learning.Predictor"],["function_handle"]]},
+                        {"name":"X", "kind":"required", "type":[["single"], ["double"]]}
+                    ]
+                ]
+            },
+            {"name":"CategoricalPredictors", "kind":"namevalue", "type":[["choices={'all'}"], ["logical", "vector"], ["char"], ["numeric", "vector"], ["cellstr"]]},
+            {"name":"CustomSyntheticData", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"], ["table"]]},
+            {"name":"DataLocality", "kind":"namevalue", "type":"choices={'global', 'local'}"},
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'seuclidean', 'mahalanobis', 'cityblock',  'minkowski', 'chebychev', 'cosine', 'correlation', 'spearman', 'ofd', 'goodall3'}"], ["char"], ["function_handle"]]},
+            {"name":"Cov", "kind":"namevalue", "type":[["double", ">=0"], ["single", ">=0"]]},
+            {"name":"P", "kind":"namevalue", "type":[["double", "scalar", ">=0", "<=1"], ["single", "scalar", ">=0", "<=1"]]},
+            {"name":"Scale", "kind":"namevalue", "type":[["double", "vector", ">=0"], ["single", "vector", ">=0"]]},
+            {"name":"KernelWidth", "kind":"namevalue", "type":[["double", "scalar", ">=0", "<=1"], ["single", "scalar", ">=0", "<=1"]]},
+            {"name":"NumImportantPredictors", "kind":"namevalue", "type":[["double", "integer", ">1"], ["single", "integer", ">1"]]},
+            {"name":"NumNeighbors", "kind":"namevalue", "type":[["double", "integer", ">1"], ["single", "integer", ">1"]]},
+            {"name":"NumSyntheticData", "kind":"namevalue", "type":[["double", "integer", ">1"], ["single", "integer", ">1"]]},
+            {"name":"QueryPoint", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"], ["table"]]},
+            {"name":"SimpleModelType", "kind":"namevalue", "type":"choices={'linear', 'tree'}"},
+            {"name":"Type", "kind":"namevalue", "type":"choices={'classification', 'regression'}"} 
+        ]
+    },
+
+    "lime.fit":
+    {
+        "inputs":
+        [
+            {"name":"limeobj", "kind":"required", "type":[["lime"]]},
+            {"name":"QueryPoint", "kind":"required", "type":[["single", "vector"], ["double", "vector"], ["table"]]},
+            {"name":"NumImportantPredictors", "kind":"required", "type":[["double", "integer", ">1"], ["single", "integer", ">1"]]},
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'seuclidean', 'mahalanobis', 'cityblock',  'minkowski', 'chebychev', 'cosine', 'correlation', 'spearman', 'ofd', 'goodall3'}"], ["char"], ["function_handle"]]},
+            {"name":"Cov", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"P", "kind":"namevalue", "type":[["double", "scalar", ">=0", "<=1"], ["single", "scalar", ">=0", "<=1"]]},
+            {"name":"Scale", "kind":"namevalue", "type":["numeric", "vector", ">=0"]},
+            {"name":"KernelWidth", "kind":"namevalue", "type":[["double", "scalar", ">=0", "<=1"], ["single", "scalar", ">=0", "<=1"]]},
+            {"name":"NumNeighbors", "kind":"namevalue", "type":[["double", "integer", ">1"], ["single", "integer", ">1"]]},
+            {"name":"NumSyntheticData", "kind":"namevalue", "type":[["double", "integer", ">1"], ["single", "integer", ">1"]]},
+            {"name":"SimpleModelType", "kind":"namevalue", "type":"choices={'linear', 'tree'}"}
+        ]
+    },
+
+    "lime.plot":
+    {
+        "inputs":
+        [
+            {"name":"limeobj", "kind":"required", "type":[["lime"]]}
+        ]
+    },
+
+    "linkage":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            
+            {"name":"method", "kind":"positional", "type":[["choices={'average', 'centroid', 'complete', 'median', 'single', 'ward', 'weighted'}"], ["char"]]},         
+            {"name":"metric", "kind":"positional", "type":[["choices={'euclidean', 'squaredeuclidean', 'seuclidean', 'cityblock', 'minkowski', 'chebychev', 'mahalanobis', 'cosine', 'correlation', 'spearman', 'hamming', 'jaccard'}"], ["function_handle"]]},
+            {"name":"'savememory'", "kind":"positional", "type":"choices={'savememory'}"},
+            {"name":"value", "kind":"positional", "type":"choices={'off', 'on'}"}
+        ]
+    },
+
+    "linkage":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            
+            {"name":"method", "kind":"positional", "type":[["choices={'average', 'centroid', 'complete', 'median', 'single', 'ward', 'weighted'}"], ["char"]]},
+            
+            {"name":"pdist_inputs", "kind":"ordered", "type":"numeric"}
+        ]
+    },
+
+    "logncdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"mu", "kind":"required"},
+            {"name":"sigma", "kind":"required"},
+            {"name":"pcov", "kind":"ordered"},
+            {"name":"alpha", "kind":"ordered"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+   "mad":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"flag", "kind":"positional", "type":"choices={0, 1}"},
+            {"name":"dim", "kind":"ordered"}
+        ]
+    },
+
+    "maineffectsplot":
+    {
+        "inputs":
+        [
+            {"name":"Y", "kind":"required", "type":"numeric"},
+            {"name":"GROUP", "kind":"required", "type":"cell"},
+
+            {"name":"varnames", "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+            {"name":"statistic", "kind":"namevalue", "type":"choices={'mean', 'std'}"},
+            {"name":"parent", "kind":"namevalue", "type":"matlab.ui.Figure"}        
+        ]
+    },
+
+   "manovacluster":
+    {
+        "inputs":
+        [
+            {"name":"stats", "kind":"required"},
+            {"name":"method", "kind":"ordered", "type":"choices={'single', 'complete', 'average', 'centroid', 'ward'}"}
+        ]
+    },
+
+    "mdscale":
+    {
+        "inputs":
+        [
+            {"name":"D", "kind":"required", "type":"numeric"},
+            {"name":"p", "kind":"required", "type":"numeric"},
+
+            {"name":"Criterion", "kind":"namevalue", "type":[["choices={'stress', 'sstress', 'metricstress', 'metricsstress', 'sammon', 'strain'}"], ["char"]]},
+            {"name":"Weights", "kind":"namevalue", "type":"numeric"},
+            {"name":"Start", "kind":"namevalue", "type":[["choices={'cmdscale', 'random'}"], ["numeric"]]},
+            {"name":"Replicates", "kind":"namevalue", "type":"integer"},  
+            {"name":"Options", "kind":"namevalue", "type":"struct"} 
+        ]
+    },
+
+    "mhsample":
+    {
+        "inputs":
+        [
+            {"name":"start", "kind":"required", "type":["numeric", "row", "vector"]},
+            {"name":"nsamples", "kind":"required", "type":"integer"},
+
+            {"name":"pdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"logpdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"proppdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"logproppdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"proprnd", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"symmetric", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"burnin", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"thin", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"nchain", "kind":"namevalue", "type":["integer", ">0"]} 
+        ]
+    },
+
+    "mle":
+	{    
+		"inputs":
+        [
+            {"name":"data", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"distribution", "kind":"namevalue", "type":[["choices={'bernoulli', 'Beta', 'Binomial', 'birnbaumsaunders', 'Burr', 'Discrete Uniform', 'Exponential', 'Extreme Value', 'Gamma', 'Generalized Extreme Value', 'Generalized Pareto', 'Geometric', 'Half Normal', 'inversegaussian', 'logistic', 'loglogistic', 'Lognormal', 'nakagami', 'Negative Binomial', 'Normal', 'Poisson', 'Rayleigh', 'rician', 'stable', 'tlocationscale', 'Uniform', 'Weibull'}"], ["char"]]},
+            {"name":"pdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"logpdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"nloglf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"start", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"cdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"logsf", "kind":"namevalue", "type":[["function_handle"],[]]},
+              
+            {"name":"Censoring", "kind":"namevalue", "type":["logical", "vector"]},
+            {"name":"Frequency", "kind":"namevalue", "type":["integer", "vector", ">=0"]},
+            {"name":"Alpha", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+            {"name":"NTrials", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"}, 
+            {"name":"LowerBound", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"UpperBound", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"OptimFun", "kind":"namevalue", "type":"choices={'fminsearch', 'fmincon'}"}
+        ]
+    },
+
+    "mlecov":
+	{    
+		"inputs":
+        [
+            {"name":"param", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"data", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"pdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"cdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"logpdf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"logsf", "kind":"namevalue", "type":[["function_handle"],[]]},
+            {"name":"nloglf", "kind":"namevalue", "type":[["function_handle"],[]]},
+              
+            {"name":"censoring", "kind":"namevalue", "type":["logical", "vector"]},
+            {"name":"frequency", "kind":"namevalue", "type":["integer", "vector", ">=0"]},
+            {"name":"options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "mnrfit":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"required", "type":"numeric"},
+
+            {"name":"Model", "kind":"namevalue", "type":[["choices={'nominal', 'ordinal', 'hierarchical'}"], ["char"]]},
+            {"name":"Interactions", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"Link", "kind":"namevalue", "type":[["choices={'logit', 'probit', 'comploglog', 'loglog'}"], ["char"]]},
+            {"name":"EstDisp", "kind":"namevalue", "type":"choices={'off', 'on'}"}      
+        ]
+    },
+
+    "mnrval":
+	{    
+		"inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"B", "kind":"required", "type":"numeric"},
+                        {"name":"X", "kind":"required", "type":"numeric"},
+
+                        {"name":"stats", "kind":"positional", "type":"struct"}
+                    ],
+                    [
+                        {"name":"B", "kind":"required", "type":"numeric"},
+                        {"name":"X", "kind":"required", "type":"numeric"},
+
+                        {"name":"ssize", "kind":"ordered", "type":["integer", "column", "vector", ">0"]},
+                        {"name":"stats", "kind":"positional", "type":"struct"}
+
+                    ]
+                ]
+            },
+              
+            {"name":"model", "kind":"namevalue", "type":[["choices={'nominal', 'ordinal', 'hierarchical'}"], ["char"]]},
+            {"name":"interactions", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"link", "kind":"namevalue", "type":[["choices={'logit', 'probit', 'comploglog', 'loglog'}"], ["char"]]},
+            {"name":"type", "kind":"namevalue", "type":[["choices={'category', 'cumulative', 'conditional'}"], ["char"]]},
+            {"name":"confidence", "kind":"namevalue", "type":["scalar", ">=0", "<=1"]}
+        ]
+    },
+
+    "multcompare":
+    {
+        "inputs":
+        [
+            {"name":"stats", "kind":"required", "type":"struct"},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["scalar", ">=0", "<=1"]},
+            {"name":"CType", "kind":"namevalue", "type":[["choices={'tukey-kramer', 'hsd', 'bonferroni', 'dunn-sidak', 'scheffe'}"], ["char"]]},
+            {"name":"Display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"Dimension", "kind":"namevalue", "type":["integer", "vector", ">0"]},
+            {"name":"Estimate", "kind":"namevalue", "type":[["choices={'column', 'row', 'slope', 'intercept', 'pmm'}"], ["char"]]}      
+        ]
+    },
+
+    "multivarichart":
+    {
+        "inputs":
+        [
+            {"name":"y", "kind":"required", "type":"numeric"},
+            {"name":"GROUP", "kind":"ordered", "type":[["cell"], ["numeric"]]},
+
+            {"name":"varnames", "kind":"namevalue", "type":[["char"], ["cellstr"]]},
+            {"name":"plotorder", "kind":"namevalue", "type":[["choices={'sorted', 'unsorted'}"], ["integer", "vector", ">=1"]]}    
+        ]
+    },
+
+    "mvksdensity":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"},
+            {"name":"pts", "kind":"required", "type":"numeric"},
+
+            {"name":"bandwidth", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"]]},
+            {"name":"Function", "kind":"namevalue", "type":[["choices={'pdf', 'cdf', 'survivor'}"], ["char"]]},    
+            {"name":"Kernel", "kind":"namevalue", "type":[["choices={'normal', 'box', 'triangle', 'epanechnikov'}"], ["char"], ["function_handle"]]},    
+            {"name":"Support", "kind":"namevalue", "type":[["choices={'unbounded', 'positive'}"], ["char"], ["single"], ["double"]]},    
+            {"name":"Weights", "kind":"namevalue", "type":[["single", "vector"], ["double", "vector"]]}
+        ]
+    },
+
+    "mvregress":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["single"], ["double"], ["cell"]]},
+            {"name":"Y", "kind":"required", "type":[["single"], ["double"]]},
+
+            {"name":"algorithm", "kind":"namevalue", "type":[["choices={'mvn', 'ecm', 'cwls'}"], ["char"]]},
+            {"name":"beta0", "kind":"namevalue", "type":"vector"},
+            {"name":"covar0", "kind":"namevalue", "type":"numeric"},
+            {"name":"covtype", "kind":"namevalue", "type":[["choices={'full', 'diagonal'}"], ["char"]]},
+            {"name":"maxiter", "kind":"namevalue", "type":["numeric", "integer", ">0"]},
+            {"name":"outputfcn", "kind":"namevalue", "type":"function_handle"},    
+            {"name":"tolbeta", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"tolobj", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"varformat", "kind":"namevalue", "type":[["choices={'full', 'beta'}"], ["char"]]},
+            {"name":"vartype", "kind":"namevalue", "type":[["choices={'hessian', 'fisher'}"], ["char"]]}   
+        ]
+    },
+
+    "mvregresslike":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"Y", "kind":"required"},
+            {"name":"b", "kind":"required"},
+            {"name":"Sigma", "kind":"required"},
+ 
+            {"name":"alg", "kind":"positional", "type":"choices={'mvn', 'ecm', 'cwls'}"},
+            {"name":"type", "kind":"positional", "type":"choices={'hessian', 'fisher'}"},
+            {"name":"format", "kind":"ordered", "type":"choices={'full', 'beta'}"} 
+        ]
+    },
+
+    "nancov":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"X2", "kind":"ordered"},
+
+            {"name":"domle", "kind":"positional", "type":"choices={0, 1}"},
+            {"name":"dopairwise", "kind":"ordered", "type":"choices={'pairwise', 'complete'}"}
+        ]
+    },
+
+    "nanstd":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"normalization_flag", "kind":"positional", "type":"choices={0, 1}"},
+            {"name":"dim", "kind":"ordered"}
+        ]
+    },
+
+    "nanvar":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"normalization_flag", "kind":"ordered", "type":"choices={0, 1}"}
+        ]
+    },
+
+    "nanvar":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"w", "kind":"positional"},
+            {"name":"dim", "kind":"ordered"}
+        ]
+    },
+
+    "nbincdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"R", "kind":"required"},
+            {"name":"p", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "ncfcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"nu1", "kind":"required"},
+            {"name":"nu2", "kind":"required"},
+            {"name":"delta", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "nctcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"nu", "kind":"required"},
+            {"name":"delta", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "ncx2cdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"v", "kind":"required"},
+            {"name":"delta", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "nearcorr":
+    {
+        "inputs":
+        [
+            {"name":"A", "kind":"required", "type":["numeric", "real"]},
+            {"name":"Tolerance", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"MaxIterations", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">0"]},
+            {"name":"Method", "kind":"namevalue", "type":["choices={'newton', 'projection'}"]},
+            {"name":"Weights", "kind":"namevalue", "type":["numeric", "real"]}
+        ]
+    },
+
+    "nlinfit":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["single"], ["double"]]},
+            {"name":"Y", "kind":"required", "type":[["single", "vector"], ["double", "vector"]]},
+            {"name":"modelfun", "kind":"required", "type":"function_handle"}, 
+            {"name":"beta0", "kind":"required", "type":[["single", "vector"], ["double", "vector"]]},
+   
+            {"name":"options", "kind":"ordered", "type":"struct"},
+            
+            {"name":"ErrorModel", "kind":"namevalue", "type":[["choices={'constant', 'proportional', 'combined'}"], ["char"]]},
+            {"name":"ErrorParameters", "kind":"namevalue", "type":[["single", "vector", "numel=2"], ["double", "vector", "numel=2"], ["single", "vector", "numel=1"], ["double", "vector", "numel=1"]]},
+            {"name":"Weights", "kind":"namevalue", "type":[["single", "vector", ">0"], ["double", "vector", ">0"], ["function_handle"]]}  
+        ]
+    },
+
+    "nlintool":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["single"], ["double"]]},
+            {"name":"Y", "kind":"required", "type":[["single", "vector"], ["double", "vector"]]},
+            {"name":"modelfun", "kind":"required", "type":"function_handle"}, 
+            {"name":"beta0", "kind":"required", "type":[["single", "vector"], ["double", "vector"]]},  
+
+            {"name":"alpha", "kind":"namevalue", "type":"numeric"},  
+            {"name":"xname", "kind":"namevalue", "type":[["cellstr"], ["char"]]},   
+            {"name":"yname", "kind":"namevalue", "type":"char"},  
+            {"name":"plotdata", "kind":"namevalue", "type":"choices={'off', 'on'}"}
+        ]
+    },
+
+    "nlmefit":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"y", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"group", "kind":"required"}, 
+            {"name":"V", "kind":"required"},
+            {"name":"fun", "kind":"required", "type":"function_handle"},
+            {"name":"beta0", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"FEParamsSelect", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"FEConstDesign", "kind":"namevalue"},
+            {"name":"FEGroupDesign", "kind":"namevalue"},
+            {"name":"FEObsDesign", "kind":"namevalue"},    
+            {"name":"REParamsSelect", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"REConstDesign", "kind":"namevalue"},
+            {"name":"REGroupDesign", "kind":"namevalue"},
+            {"name":"REObsDesign", "kind":"namevalue"},
+            {"name":"RefineBeta0", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+            {"name":"ErrorModel", "kind":"namevalue", "type":"choices={'constant', 'proportional', 'combined', 'exponential'}"},
+            {"name":"ApproximationType", "kind":"namevalue", "type":"choices={'LME', 'RELME', 'FO', 'FOCE'}"},
+            {"name":"Vectorization", "kind":"namevalue", "type":"choices={'SinglePhi', 'SingleGroup', 'Full'}"},
+            {"name":"CovParameterization", "kind":"namevalue", "type":"choices={'chol', 'logm'}"},
+            {"name":"CovPattern", "kind":"namevalue"},
+            {"name":"ParamTransform", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"},
+            {"name":"OptimFun", "kind":"namevalue", "type":"choices={'fminsearch', 'fminunc'}"}
+        ]
+    },
+
+    "nlmefitoutputfcn":
+    {
+        "inputs":
+        [
+            {"name":"beta", "kind":"required"},
+            {"name":"status", "kind":"required", "type":"struct"},
+            {"name":"state", "kind":"required", "type":"choices={'init', 'iter', 'done'}"}
+        ]
+    },
+
+    "nlmefitsa":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"Y", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"GROUP", "kind":"required"}, 
+            {"name":"V", "kind":"required"},
+            {"name":"MODELFUN", "kind":"required", "type":"function_handle"},
+            {"name":"BETA0", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"FEParamsSelect", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"FEConstDesign", "kind":"namevalue"},
+            {"name":"FEGroupDesign", "kind":"namevalue"},
+            {"name":"REParamsSelect", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"REConstDesign", "kind":"namevalue"},
+            {"name":"CovPattern", "kind":"namevalue"},
+            {"name":"Cov0", "kind":"namevalue"},
+            {"name":"ComputeStdErrors", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"ErrorModel", "kind":"namevalue", "type":"choices={'constant', 'proportional', 'combined', 'exponential'}"},
+            {"name":"ErrorParameters", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"LogLikMethod", "kind":"namevalue", "type":"choices={'is', 'gq', 'lin', 'none'}"},
+            {"name":"NBurnIn", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"NChains", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"NIterations", "kind":"namevalue", "type":"numeric"},
+            {"name":"NMCMCIterations", "kind":"namevalue", "type":"numeric"},
+            {"name":"OptimFun", "kind":"namevalue", "type":"choices={'fminsearch', 'fminunc'}"},
+            {"name":"Options", "kind":"namevalue", "type":"struct"},
+            {"name":"ParamTransform", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"Replicates", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"Vectorization", "kind":"namevalue", "type":"choices={'SinglePhi', 'SingleGroup', 'Full'}"}
+        ]
+    },
+
+    "nlparci":
+    {
+        "inputs":
+        [
+            {"name":"beta", "kind":"required", "type":"numeric"},
+            {"name":"resid", "kind":"required", "type":"numeric"},
+
+            {"name":"covariance", "kind":"namevalue", "type":"numeric"},  
+            {"name":"jacobian", "kind":"namevalue", "type":"numeric"},   
+            {"name":"alpha", "kind":"namevalue", "type":"numeric"}
+        ]
+    },
+
+    "nlpredci":
+    {
+        "inputs":
+        [
+            {"name":"modelfun", "kind":"required", "type":"function_handle"}, 
+            {"name":"X", "kind":"required", "type":[["single"], ["double"]]},
+            {"name":"beta", "kind":"required", "type":[["single", "vector"], ["double", "vector"]]},
+            {"name":"R", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"Covariance", "kind":"namevalue", "type":"numeric"},  
+            {"name":"Jacobian", "kind":"namevalue", "type":"numeric"},  
+            {"name":"Alpha", "kind":"namevalue", "type":[["single", "scalar", ">=0", "<=1"], ["double", "scalar", ">=0", "<=1"]]},
+            {"name":"ErrorModelInfo", "kind":"namevalue", "type":"struct"},  
+            {"name":"MSE", "kind":"namevalue", "type":[["single"], ["double"]]},
+            {"name":"PredOpt", "kind":"namevalue", "type":[["choices={'curve', 'observation'}"], ["char"]]},
+            {"name":"SimOpt", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"Weights", "kind":"namevalue", "type":[["single", "vector", ">0"], ["double", "vector", ">0"], ["function_handle"]]}
+        ]
+    },
+
+    "nnmf":
+    {
+        "inputs":
+        [
+            {"name":"A", "kind":"required", "type":"numeric"}, 
+            {"name":"k", "kind":"required", "type":["scalar", "integer", ">0"]},
+
+            {"name":"algorithm", "kind":"namevalue", "type":[["choices={'als', 'mult'}"], ["char"]]},
+            {"name":"w0", "kind":"namevalue", "type":"numeric"},
+            {"name":"h0", "kind":"namevalue", "type":"numeric"},  
+            {"name":"options", "kind":"namevalue", "type":"struct"},
+            {"name":"replicates", "kind":"namevalue", "type":["scalar", "integer", ">0"]}
+        ]
+    },
+
+    "normcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"mu", "kind":"ordered"},
+            {"name":"sigma", "kind":"ordered"},
+            {"name":"pcov", "kind":"ordered"},
+            {"name":"alpha", "kind":"ordered"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "normspec":
+    {
+        "inputs":
+        [
+            {"name":"specs", "kind":"required"},
+            {"name":"mu", "kind":"positional"},
+            {"name":"sigma", "kind":"positional"},
+            {"name":"region", "kind":"ordered", "type":"choices={'inside', 'outside'}"}
+        ]
+    },
+
+    "optimalleaforder":
+    {
+        "inputs":
+        [
+            {"name":"tree", "kind":"required", "type":"numeric"}, 
+            {"name":"D", "kind":"required", "type":"numeric"},
+
+            {"name":"Criteria", "kind":"namevalue", "type":[["choices={'adjacent', 'group'}"], ["char"]]},
+            {"name":"Transformation", "kind":"namevalue", "type":[["choices={'linear', 'inverse'}"], ["char"], ["function_handle"]]}
+        ]
+    },
+
+    "parallelcoords":
+    {
+        "inputs":
+        [
+
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"x", "kind":"required", "type":[["double"], ["single"]]}
+                    ],
+                    [
+                        {"name":"ax", "kind":"required", "type":"matlab.graphics.axis.Axes"}, 
+                        {"name":"x", "kind":"required", "type":[["double"], ["single"]]}
+                    ]
+                ]
+            },
+
+            {"name":"Group", "kind":"namevalue", "type":[["double"], ["single"], ["categorical"], ["char"], ["cell"], ["cellstr"]]},
+            {"name":"Labels", "kind":"namevalue", "type":[["char"], ["cell"], ["cellstr"]]},
+            {"name":"Quantile", "kind":"namevalue", "type":[["single", "scalar", ">0", "<1"], ["double", "scalar", ">0", "<1"]]},
+            {"name":"Standardize", "kind":"namevalue", "type":[["choices={'on', 'PCA', 'PCAStd'}"], ["char"]]}
+        ]
+    },
+
+   "paretotails":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"pl", "kind":"required", "type":["numeric", "scalar", ">=0", "<=1"]},
+            {"name":"pu", "kind":"required", "type":["numeric", "scalar", ">=0", "<=1"]},
+
+            {"name":"cdffun", "kind":"ordered", "type":[["choices={'ecdf', 'kernel'}"], ["function_handle"]]}
+         ]
+    },
+
+    "partialcorr":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":[["double"], ["single"]]},
+            {"name":"y", "kind":"ordered", "type":[["double"], ["single"]]},
+            {"name":"z", "kind":"ordered", "type":[["double"], ["single"]]},
+
+            {"name":"Type", "kind":"namevalue", "type":[["choices={'Pearson', 'Spearman'}"], ["char"]]},
+            {"name":"Rows", "kind":"namevalue", "type":[["choices={'all', 'complete', 'pairwise'}"], ["char"]]},
+            {"name":"Tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"]]}
+        ]
+    },
+
+    "partialcorri":
+    {
+        "inputs":
+        [
+            {"name":"y", "kind":"required", "type":[["double"], ["single"]]},
+            {"name":"x", "kind":"required", "type":[["double"], ["single"]]},
+            {"name":"z", "kind":"ordered", "type":[["double"], ["single"]]},
+
+            {"name":"Type", "kind":"namevalue", "type":[["choices={'Pearson', 'Spearman'}"], ["char"]]},
+            {"name":"Rows", "kind":"namevalue", "type":[["choices={'all', 'complete', 'pairwise'}"], ["char"]]},
+            {"name":"Tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"]]}
+        ]
+    },
+
+    "pca":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["double"], ["single"]]},
+
+            {"name":"Algorithm", "kind":"namevalue", "type":[["choices={'svd', 'eig', 'als'}"], ["char"]]},
+            {"name":"Centered", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"Economy", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"NumComponents", "kind":"namevalue", "type":[["single", "integer", "scalar", ">0"], ["double", "integer", "scalar", ">0"]]},
+            {"name":"Rows", "kind":"namevalue", "type":[["choices={'all', 'complete', 'pairwise'}"], ["char"]]},
+            {"name":"Weights", "kind":"namevalue", "type":[["single", "row", "vector", ">0"], ["double", "row", "vector", ">0"]]},
+            {"name":"VariableWeights", "kind":"namevalue", "type":[["choices={'variance'}"], ["char"], ["single", "row", "vector", ">0"], ["double", "row", "vector", ">0"]]},
+            {"name":"Coeff0", "kind":"namevalue", "type":[["single"], ["double"]]},
+            {"name":"Score0", "kind":"namevalue", "type":[["single"], ["double"]]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "pdist":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Distance", "kind":"ordered", "type":[["choices={'seuclidean', 'minkowski', 'mahalanobis', 'euclidean', 'squaredeuclidean', 'cityblock', 'chebychev', 'cosine', 'correlation', 'spearman', 'hamming', 'jaccard'}"], ["char"], ["function_handle"]]}
+        ]
+    },
+
+    "pdist":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Seuclidean", "kind":"positional", "type":"choices={'seuclidean'}"},
+
+            {"name":"Scale", "kind":"ordered", "type":["numeric", ">0"]}
+        ]
+    },
+
+    "pdist":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Minkowski", "kind":"positional", "type":"choices={'minkowski'}"},
+
+            {"name":"Exponent", "kind":"ordered", "type":["numeric", "scalar", ">0"]}
+
+        ]
+    },
+
+    "pdist":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Mahalanobis", "kind":"positional", "type":"choices={'mahalanobis'}"},
+
+            {"name":"Covariance", "kind":"ordered", "type":"numeric"}
+        ]
+    },
+
+    "pdist2":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"required", "type":"numeric"},
+
+            {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"Distance", "kind":"positional", "type":[["choices={'seuclidean', 'minkowski', 'mahalanobis', 'euclidean', 'squaredeuclidean', 'cityblock', 'chebychev', 'cosine', 'correlation', 'spearman', 'hamming', 'jaccard'}"], ["char"], ["function_handle"]]}
+                ],
+                [
+                    {"name":"seuclidean", "kind":"positional", "type":"choices={'seuclidean'}"},
+
+                    {"name":"Scale", "kind":"ordered", "type":["numeric", ">0"]}
+                ],
+                [
+                    {"name":"minkowski", "kind":"positional", "type":"choices={'minkowski'}"},
+
+                    {"name":"Exponent", "kind":"ordered", "type":["numeric", "scalar", ">0"]}
+                ],
+                [
+                    {"name":"mahalanobis", "kind":"positional", "type":"choices={'mahalanobis'}"},
+
+                    {"name":"Covariance", "kind":"ordered", "type":"numeric"}
+                ]
+            ]
+            },
+            {"mutuallyExclusiveGroup":
+            [
+                [
+                    {"name":"Smallest", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=1"]}
+                ],
+                [
+                    {"name":"Largest", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=1"]}
+                ]
+             ]
+            }
+        ]
+    },
+
+    "perfcurve":
+    {
+        "inputs":
+        [
+            {"name":"labels", "kind":"required", "type":[["double", "vector"], ["single", "vector"], ["logical", "vector"], ["categorical"], ["char"], ["cell"], ["cellstr"]]},
+            {"name":"scores", "kind":"required", "type":[["double", "vector"], ["single", "vector"]]},
+            {"name":"posclass", "kind":"required", "type":[["double"], ["single"], ["logical"], ["categorical"], ["char"], ["cell"], ["cellstr"]]},
+
+            {"name":"NegClass", "kind":"namevalue", "type":[["choices={'all'}"], ["char"], ["single"], ["double"], ["categorical"]]},
+            {"name":"XCrit", "kind":"namevalue", "type":[["choices={'tp', 'fn', 'fp', 'tn', 'tp+fp', 'rpp', 'rnp', 'accu', 'tpr', 'sens', 'reca', 'fnr', 'miss', 'fpr', 'fall', 'tnr', 'spec', 'ppv', 'prec', 'ecost'}"], ["function_handle"], ["char"]]},
+            {"name":"YCrit", "kind":"namevalue", "type":[["choices={'tp', 'fn', 'fp', 'tn', 'tp+fp', 'rpp', 'rnp', 'accu', 'tpr', 'sens', 'reca', 'fnr', 'miss', 'fpr', 'fall', 'tnr', 'spec', 'ppv', 'prec', 'ecost'}"], ["function_handle"], ["char"]]},
+            {"name":"XVals", "kind":"namevalue", "type":[["choices={'all'}"], ["char"], ["single"], ["double"]]},
+            {"name":"TVals", "kind":"namevalue", "type":[["choices={'all'}"], ["char"], ["single"], ["double"]]},
+            {"name":"UseNearest", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"ProcessNaN", "kind":"namevalue", "type":[["choices={'ignore', 'addtofalse'}"], ["char"]]},
+            {"name":"Prior", "kind":"namevalue", "type":[["choices={'empirical', 'uniform'}"], ["char"], ["single", "numel=2"], ["double", "numel=2"]]},
+            {"name":"Cost", "kind":"namevalue", "type":[["single"], ["double"]]},
+            {"name":"Alpha", "kind":"namevalue", "type":[["single", "scalar", ">=0", "<=1"], ["double", "scalar", ">=0", "<=1"]]},
+            {"name":"Weights", "kind":"namevalue", "type":[["single", "vector", ">=0"], ["double", "vector", ">=0"], ["cell"]]},
+            {"name":"NBoot", "kind":"namevalue", "type":[["single", "integer", ">=1"], ["double", "integer", ">=1"]]},
+            {"name":"BootType", "kind":"namevalue", "type":[["choices={'bca', 'normal', 'percentile', 'corrected percentile', 'student'}"], ["char"]]},
+            {"name":"BootArg", "kind":"namevalue", "type":"cell"},
+            {"name":"Options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "plsregress":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"required", "type":"numeric"},
+            {"name":"ncomp", "kind":"required", "type":["numeric", "scalar", "integer", ">=1"]},
+
+            {"name":"cv", "kind":"namevalue", "type":[["choices={'resubstitution'}"], ["char"], ["numeric", "integer", ">=1"], ["cvpartition"]]},
+            {"name":"mcreps", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=1"]},
+            {"name":"options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "poisscdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"lambda", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "polyconf":
+    {
+        "inputs":
+        [
+            {"name":"p", "kind":"required", "type":"numeric"},
+            {"name":"X", "kind":"required", "type":"numeric"}
+        ]
+    },
+
+    "polyconf":
+    {
+        "inputs":
+        [
+            {"name":"p", "kind":"required", "type":"numeric"},
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"S", "kind":"required", "type":"struct"},
+
+            {"name":"alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"mu", "kind":"namevalue", "type":["numeric", "vector", "numel=2"]},
+            {"name":"predopt", "kind":"namevalue", "type":[["choices={'observation', 'curve'}"], ["char"]]},
+            {"name":"simopt", "kind":"namevalue", "type":"choices={'off', 'on'}"}
+        ]
+    },
+
+    "ppca":
+    {
+        "inputs":
+        [
+            {"name":"Y", "kind":"required", "type":[["single"], ["double"]]},
+            {"name":"K", "kind":"required", "type":[["single", "scalar", "integer", ">0"], ["double", "scalar", "integer", ">0"]]},
+
+            {"name":"W0", "kind":"namevalue", "type":[["single"], ["double"]]},
+            {"name":"v0", "kind":"namevalue", "type":[["single", "scalar", ">0"], ["double", "scalar", ">0"]]},
+            {"name":"options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "princomp":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"econ", "kind":"ordered", "type":"choices={'econ'}"}
+        ]
+    },
+
+    "probplot":
+    {
+        "inputs":
+        [
+            {"name":"y", "kind":"required", "type":"numeric"},
+            {"name":"cens", "kind":"ordered", "type":["numeric", "vector"]},
+            {"name":"freq", "kind":"ordered", "type":["integer", "vector"]},
+            {"name":"noref", "kind":"ordered", "type":"choices={'noref'}"}
+        ]
+    },
+
+    "probplot":
+    {
+        "inputs":
+        [
+            {"name":"dist", "kind":"required", "type":[["choices={'normal', 'exponential', 'extreme value', 'half normal', 'lognormal', 'logistic', 'loglogistic', 'rayleigh', 'weibull'}"], ["char"]]},
+            {"name":"y", "kind":"required", "type":"numeric"},
+            {"name":"cens", "kind":"ordered", "type":["numeric", "vector"]},
+            {"name":"freq", "kind":"ordered", "type":["integer", "vector"]},
+            {"name":"noref", "kind":"ordered", "type":"choices={'noref'}"}
+        ]
+    },
+
+    "probplot":
+    {
+        "inputs":
+        [
+            {"name":"ax", "kind":"required", "type":"matlab.graphics.axis.Axes"},
+            {"name":"y", "kind":"required", "type":"numeric"},
+            {"name":"noref", "kind":"ordered", "type":"choices={'noref'}"}
+        ]
+    },
+
+    "probplot":
+    {
+        "inputs":
+        [
+            {"name":"ax", "kind":"required", "type":"matlab.graphics.axis.Axes"},
+            {"name":"pd", "kind":"required"},
+            {"name":"noref", "kind":"ordered", "type":"choices={'noref'}"}
+        ]
+    },
+
+    "probplot":
+    {
+        "inputs":
+        [
+            {"name":"ax", "kind":"required", "type":"matlab.graphics.axis.Axes"},
+            {"name":"fun", "kind":"required", "type":"function_handle"},
+            {"name":"params", "kind":"required"},
+            {"name":"noref", "kind":"ordered", "type":"choices={'noref'}"}
+        ]
+    },
+
+    "procrustes":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"required", "type":"numeric"},
+
+            {"name":"scaling", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"reflection", "kind":"namevalue", "type":[["logical", "scalar"], ["choices={'best'}"], ["char"], ["logical"]]}
+        ]
+    },
+
+   "qrandstream":
+    {
+        "inputs":
+        [
+            {"name":"type", "kind":"required", "type":"choices={'halton'}"},
+            {"name":"d", "kind":"required", "type":"numeric"},
+
+            {"name":"Skip", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"Leap", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"ScrambleMethod", "kind":"namevalue", "type":"struct"}
+         ]
+    },
+
+   "qrandstream":
+    {
+        "inputs":
+        [
+            {"name":"type", "kind":"required", "type":"choices={'sobol'}"},
+            {"name":"d", "kind":"required", "type":"numeric"},
+
+            {"name":"Skip", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"Leap", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"PointOrder", "kind":"namevalue", "type":"choices={'standard', 'graycode'}"},
+            {"name":"ScrambleMethod", "kind":"namevalue", "type":"struct"}
+         ]
+    },
+
+   "qrandstream":
+    {
+        "inputs":
+        [
+            {"name":"p", "kind":"required", "type":[["haltonset"], ["sobolset"]]}
+        ]
+    },
+
+    "random":
+    {
+        "inputs":
+        [
+            {"name":"pd", "kind":"required", "repeating":true}
+        ]
+    },
+
+    "random":
+    {
+        "inputs":
+        [
+            {"name":"name", "kind":"required", "type":[["choices={'Beta', 'Binomial', 'birnbaumsaunders', 'Burr', 'Chisquare', 'Exponential', 'Extreme Value', 'F', 'Gamma', 'Generalized Extreme Value', 'Generalized Pareto', 'Geometric', 'Half Normal', 'Hypergeometric', 'inversegaussian', 'logistic', 'loglogistic', 'Lognormal', 'nakagami', 'Negative Binomial', 'Noncentral F', 'Noncentral t', 'Noncentral Chi-square', 'Normal', 'Poisson', 'Rayleigh', 'rician', 'Stable', 'T', 'tlocationscale', 'Uniform', 'Discrete Uniform', 'Weibull'}"], ["char"]]},
+            {"name":"A", "kind":"required", "repeating":true}
+        ]
+    },
+
+    "randsample":
+    {
+        "inputs":
+        [
+            {"name":"n_or_population", "kind":"required", "type":"numeric"},
+            {"name":"k", "kind":"required", "type":"numeric"},
+            {"name":"replacement", "kind":"ordered", "type":["logical", "scalar"]},
+            {"name":"weight", "kind":"ordered", "type":"numeric"}
+        ]
+    },
+      
+    "rangesearch":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"required", "type":"numeric"},
+            {"name":"r", "kind":"required", "type":["numeric", "scalar", ">=0"]},
+
+            {"name":"BucketSize", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"Cov", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'seuclidean', 'mahalanobis', 'cityblock', 'minkowski', 'chebychev', 'cosine', 'correlation', 'hamming', 'jaccard', 'spearman'}"], ["char"], ["function_handle"]]},
+            {"name":"NSMethod", "kind":"namevalue", "type":"choices={'kdtree', 'exhaustive'}"},   
+            {"name":"P", "kind":"namevalue", "type":["scalar", ">0"]},
+            {"name":"Scale", "kind":"namevalue", "type":["numeric", "vector", ">=0"]},
+            {"name":"SortIndices", "kind":"namevalue", "type":["logical", "scalar"]}
+        ]
+    },
+
+    "ranksum":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"y", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"method", "kind":"namevalue", "type":[["choices={'exact', 'approximate'}"], ["char"]]},
+            {"name":"tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"]]}
+        ]
+    },
+
+    "raylcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"b", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "regstats":
+    {
+        "inputs":
+        [
+            {"name":"y", "kind":"required"},
+            {"name":"X", "kind":"required"},
+            {"name":"model", "kind":"required", "type":"choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"},
+            {"name":"whichstats", "kind":"ordered", "type":[["choices={'Q','R','beta','covb','yhat','r','mse','rsquare','adjrsquare','leverage','hatmat','s2_i','beta_i','standres','studres','dfbetas','dffit','dffits','covratio','cookd','tstat','fstat','dwstat'}"], ["char"], ["cellstr"]]}
+        ]
+    },
+
+    "relieff":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"Y", "kind":"required", "type":[["numeric", "vector"], ["categorical"], ["logical", "vector"], ["cell"], ["char"], ["cellstr"]]},
+            {"name":"K", "kind":"required", "type":["numeric", "scalar", ">0"]},
+
+            {"name":"method", "kind":"namevalue", "type":[["choices={'regression', 'classification'}"], ["char"]]},
+            {"name":"prior", "kind":"namevalue", "type":[["choices={'empirical', 'uniform'}"], ["char"], ["numeric", "vector"], ["struct"]]},
+            {"name":"updates", "kind":"namevalue", "type":[["choices={'all'}"], ["numeric", "scalar", ">0"]]},
+            {"name":"categoricalx", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"sigma", "kind":"namevalue", "type":["numeric", "scalar", ">0"]}
+        ]
+    },
+
+    "ridge":
+    {
+        "inputs":
+        [
+            {"name":"y", "kind":"required"},
+            {"name":"X", "kind":"required"},
+            {"name":"k", "kind":"required"},
+            {"name":"scaled", "kind":"ordered", "type":"choices={0, 1}"}
+        ]
+    },
+
+   "robustcov":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"},
+
+            {"name":"Method", "kind":"namevalue", "type":[["choices={'fmcd', 'ogk', 'olivehawkins'}"], ["char"]]},
+            {"name":"OutlierFraction", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=.5"]},
+            {"name":"NumTrials", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"BiasCorrection", "kind":"namevalue", "type":"choices={0, 1}"},
+            {"name":"NumOGKIterations", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"UnivariateEstimator", "kind":"namevalue", "type":[["choices={'tauscale', 'qn'}"], ["char"]]},
+            {"name":"ReweightingMethod", "kind":"namevalue", "type":[["choices={'rfch', 'rmvn'}"], ["char"]]},
+            {"name":"NumConcentrationSteps", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"StartMethod", "kind":"namevalue", "type":[["choices={'classical', 'medianball', 'elemental'}"], ["cell"], ["cellstr"], ["function_handle"], ["char"]]}
+        ]
+    },
+
+   "robustfit":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"y", "kind":"required", "type":"numeric"},
+            {"name":"wfun", "kind":"positional", "type":"numeric", "type":"choices={'andrews', 'bisquare', 'cauchy', 'fair', 'huber', 'logistic', 'ols', 'talwar', 'welsch'}"},
+            {"name":"tune", "kind":"positional", "type":"numeric"},
+            {"name":"const", "kind":"ordered", "type":"choices={'off', 'on'}"}
+        ]
+    },
+
+   "rotatefactors":
+    {
+        "inputs":
+        [
+            {"name":"A", "kind":"required", "type":"numeric"},
+
+            {"name":"Method", "kind":"namevalue", "type":[["choices={'orthomax', 'procrustes', 'pattern', 'promax', 'varimax', 'quartimax', 'equamax', 'parsimax'}"], ["char"]]},
+            {"name":"normalize", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"coeff", "kind":"namevalue", "type":["numeric", ">=0"]},
+            {"name":"reltol", "kind":"namevalue", "type":"numeric"},
+            {"name":"maxit", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"power", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"target", "kind":"namevalue", "type":"numeric"},
+            {"name":"type", "kind":"namevalue", "type":[["choices={'orthogonal', 'oblique'}"], ["char"]]}
+        ]
+    },
+
+   "rowexch":
+    {
+        "inputs":
+        [
+            {"name":"nfactors", "kind":"required", "type":["integer", "scalar", ">=0"]},
+            {"name":"nruns", "kind":"required", "type":["integer", "scalar", ">=0"]},
+
+            {"name":"model", "kind":"positional", "type":[["choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"], ["char"], ["numeric"]]}
+        ]
+    },
+
+    "rowexch":
+     {
+         "inputs":
+         [
+             {"name":"nfactors", "kind":"required", "type":["integer", "scalar", ">=0"]},
+             {"name":"nruns", "kind":"required", "type":["integer", "scalar", ">=0"]},
+             {"name":"model", "kind":"required", "type":[["choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"], ["char"], ["numeric"]]},
+  
+             {"name":"bounds", "kind":"namevalue", "type":[["cell"], ["numeric"]]},
+             {"name":"categorical", "kind":"namevalue", "type":"numeric"},
+             {"name":"display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+             {"name":"excludefun", "kind":"namevalue", "type":"function_handle"},
+             {"name":"init", "kind":"namevalue", "type":"numeric"},
+             {"name":"levels", "kind":"namevalue", "type":["numeric", "vector"]},
+             {"name":"maxiter", "kind":"namevalue", "type":"numeric"},
+             {"name":"options", "kind":"namevalue", "type":"struct"},
+             {"name":"tries", "kind":"namevalue", "type":"numeric"}
+         ]
+     },
+
+    "rstool":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"positional"},
+            {"name":"Y", "kind":"positional"},
+            {"name":"model", "kind":"positional", "type":"choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"},
+            {"name":"alpha", "kind":"positional"},
+            {"name":"xname", "kind":"positional", "type":[["char"], ["cellstr"]]},
+            {"name":"yname", "kind":"ordered", "type":[["char"], ["cellstr"]]}
+         ]
+    },
+
+    "runstest":
+     {
+         "inputs":
+         [
+             {"name":"x", "kind":"required", "type":["numeric", "vector"]},
+             {"name":"v", "kind":"positional", "type":[["choices={'ud'}"], ["numeric", "scalar"]]}
+         ]
+     },
+
+   "runstest":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"v", "kind":"required", "type":[["choices={'ud'}"], ["numeric", "scalar"]]},
+
+            {"name":"alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"method", "kind":"namevalue", "type":[["choices={'exact', 'approximate'}"], ["char"]]},
+            {"name":"tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"]]}
+        ]
+    },
+
+   "sampsizepwr":
+    {
+        "inputs":
+        [
+            {"name":"testtype", "kind":"required", "type":[["choices={'z', 't', 't2', 'var', 'p'}"], ["char"]]},
+            {"name":"p0", "kind":"required", "type":"numeric"},
+            {"name":"p1", "kind":"required", "type":"numeric"},
+            {"name":"pwr", "kind":"required", "type":["numeric", ">0", "<1"]},
+            {"name":"n", "kind":"required", "type":["numeric", ">0"]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["numeric", ">0", "<1"]},
+            {"name":"Ratio", "kind":"namevalue", "type":["numeric", ">=1"]},
+            {"name":"Tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"], ["numeric", "scalar"]]}
+        ]
+    },
+
+   "scatterhist":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"y", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"NBins", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"Location", "kind":"namevalue", "type":[["choices={'SouthWest', 'SouthEast', 'NorthEast', 'NorthWest'}"], ["char"]]},
+            {"name":"Direction", "kind":"namevalue", "type":[["choices={'in', 'out'}"], ["char"]]},
+            {"name":"Group", "kind":"namevalue", "type":[["categorical"], ["logical", "vector"], ["numeric", "vector"], ["cellstr"]]},
+            {"name":"PlotGroup", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"Style", "kind":"namevalue", "type":[["choices={'stairs', 'bar'}"], ["char"]]},
+            {"name":"Kernel", "kind":"namevalue", "type":"choices={'off', 'on', 'overlay'}"},
+            {"name":"Bandwidth", "kind":"namevalue", "type":"numeric"},
+            {"name":"Legend", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"Parent", "kind":"namevalue", "type":[["matlab.ui.container.Panel"], ["matlab.ui.Figure"]]},
+            {"name":"LineStyle", "kind":"namevalue", "type":["choices={'-', '--', ':', '-.', 'none'}", "cellstr"]},
+            {"name":"LineWidth", "kind":"namevalue", "type":["numeric", ">=0"]},
+            {"name":"Color", "kind":"namevalue", "type":[["choices={'yellow', 'magenta', 'cyan', 'red', 'green', 'blue', 'white', 'black'}"], ["numeric", ">=0", "<=1"], ["char"]]},
+            {"name":"Marker", "kind":"namevalue", "type":[["choices={'none', 'o', '+', '*', '.', 'x', 'square', 'diamond', '^', 'v', '>', '<', 'pentagram', 'hexagram'}"], ["cell"], ["char"]]},
+            {"name":"MarkerSize", "kind":"namevalue", "type":["numeric", ">=0"]}
+        ]
+    },
+
+   "sequentialfs":
+    {
+        "inputs":
+        [
+            {"name":"fun", "kind":"required", "type":"function_handle"},
+            {"name":"x", "kind":"required", "type":"numeric"},
+            
+            {"name":"y", "kind":"ordered", "repeating":true},
+
+            {"name":"cv", "kind":"namevalue", "type":[["choices={'resubstitution', 'none'}"], ["char"], ["numeric", "integer", ">=1"], ["cvpartition"]]},
+            {"name":"mcreps", "kind":"namevalue", "type":["numeric", "integer", ">0"]},
+            {"name":"direction", "kind":"namevalue", "type":[["choices={'forward', 'backward'}"], ["char"]]},
+            {"name":"keepin", "kind":"namevalue", "type":[["logical", "vector"], ["numeric", "vector"]]},
+            {"name":"keepout", "kind":"namevalue", "type":[["logical", "vector"], ["numeric", "vector"]]},
+            {"name":"nfeatures", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">=0"]},
+            {"name":"nullmodel", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"options", "kind":"namevalue", "type":"struct"}
+        ]
+    },
+
+    "signrank":
+     {
+         "inputs":
+         [
+             {"name":"x", "kind":"required", "type":["numeric", "vector"]}
+         ]
+     },
+
+   "signrank":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"y", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"alpha", "kind":"namevalue", "type":["numeric", ">0", "<1"]},
+            {"name":"method", "kind":"namevalue", "type":[["choices={'exact', 'approximate'}"], ["char"]]},
+            {"name":"tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"]]}
+        ]
+    },
+
+    "signtest":
+     {
+         "inputs":
+         [
+             {"name":"x", "kind":"required", "type":["numeric", "vector"]}
+         ]
+     },
+
+   "signtest":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"y", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"method", "kind":"namevalue", "type":[["choices={'exact', 'approximate'}"], ["char"]]},
+            {"name":"tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"]]}
+        ]
+    },
+
+    "silhouette":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"clust", "kind":"required"},
+            {"name":"metric", "kind":"ordered", "type":[["choices={'Euclidean', 'sqEuclidean', 'cityblock', 'cosine', 'correlation', 'Hamming', 'Jaccard'}"], ["numeric"]]}
+         ]
+    },
+
+    "silhouette":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"clust", "kind":"required"},
+            {"name":"distfun", "kind":"positional", "type":"function_handle"},
+            {"name":"distfun_params", "kind":"ordered", "repeating":true}
+         ]
+    },
+
+    "skewness":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"flag", "kind":"positional", "type":"choices={0, 1}"},
+            {"name":"dim", "kind":"ordered", "type":"numeric"}
+         ]
+    },
+
+   "slicesample":
+    {
+        "inputs":
+        [
+            {"name":"initial", "kind":"required", "type":["numeric", "vector"]},
+            {"name":"nsamples", "kind":"required", "type":["integer", ">0"]},
+
+            {"name":"pdf", "kind":"namevalue", "type":"function_handle"},
+            {"name":"logpdf", "kind":"namevalue", "type":"function_handle"},
+            {"name":"burnin", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"thin", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"width", "kind":"namevalue", "type":["numeric", "vector", ">0"]}
+        ]
+    },
+
+   "sobolset":
+    {
+        "inputs":
+        [
+            {"name":"d", "kind":"required", "type":"numeric"},
+
+            {"name":"Skip", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"Leap", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"PointOrder", "kind":"namevalue", "type":"choices={'standard', 'graycode'}"},
+            {"name":"ScrambleMethod", "kind":"namevalue", "type":"struct"}
+         ]
+    },
+	
+	"spectralcluster":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":[["single"], ["double"]]},
+            {"name":"k", "kind":"required", "type":["numeric", "scalar", "integer", ">0"]},
+
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'seuclidean', 'mahalanobis', 'cityblock', 'minkowski', 'chebychev', 'cosine', 'correlation', 'hamming', 'jaccard', 'spearman', 'precomputed'}"], ["char"], ["function_handle"]]},
+            {"name":"Cov", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"P", "kind":"namevalue", "type":["scalar", ">0"]},
+            {"name":"Scale", "kind":"namevalue", "type":["numeric", "vector", ">=0"]},
+			{"name":"LaplacianNormalization", "kind":"namevalue", "type":[["choices={'randomwalk', 'symmetric', 'none'}"], ["char"]]},
+			{"name":"SimilarityGraph", "kind":"namevalue", "type":[["choices={'knn', 'epsilon'}"], ["char"]]},
+			{"name":"NumNeighbors", "kind":"namevalue", "type":["numeric", "scalar", "integer", ">0"]},
+			{"name":"KNNGraphType", "kind":"namevalue", "type":[["choices={'complete', 'mutual'}"], ["char"]]},
+			{"name":"Radius", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+			{"name":"KernelScale", "kind":"namevalue", "type":[["choices={'auto'}"], ["numeric", "scalar", ">0"]]},
+			{"name":"ClusterMethod", "kind":"namevalue", "type":[["choices={'kmeans', 'kmedoids'}"], ["char"]]}
+        ]
+    },
+
+    "squareform":
+    {
+        "inputs":
+        [
+            {"name":"Y", "kind":"required", "type":"numeric"},
+            {"name":"direction", "kind":"ordered", "type":"choices={'tovector', 'tomatrix'}"}
+         ]
+    },
+
+    "statget":
+    {
+        "inputs":
+        [
+            {"name":"options", "kind":"required", "type":"struct"},
+            {"name":"param", "kind":"required", "type":[["choices={'Display', 'MaxFunEvals', 'MaxIter', 'TolBnd', 'TolFun', 'TolTypeFun', 'TolX', 'TolTypeX', 'GradObj', 'Jacobian', 'DerivStep', 'FunValCheck', 'Robust', 'RobustWgtFun', 'WgtFun', 'Tune', 'UseParallel', 'UseSubstreams', 'Streams', 'OutputFcn'}"], ["char"]]},
+            {"name":"default", "kind":"ordered"}
+         ]
+    },
+
+    "statset":
+    {
+        "inputs":
+        [
+            {"name":"statfun", "kind":"ordered", "type":"choices={'factoran', 'normfit', 'lognfit', 'gamfit', 'bisafit', 'invgfit', 'logifit', 'loglfit', 'nakafit', 'coxphfit', 'evfit', 'wblfit', 'copulafit', 'gpfit', 'gevfit', 'nbinfit', 'ricefit', 'tlsfit', 'stablefit', 'kmeans', 'tall/kmeans', 'kmedoids', 'svmtrain', 'nlinfit', 'fitnlm', 'nlmefit', 'nlmefitsa', 'mlecustom', 'mlecov', 'mdscale', 'mvncdf', 'mvtcdf', 'gmdistribution', 'nnmf', 'sequentialfs', 'bootci', 'bootstrp', 'candexch', 'cordexch', 'crossval', 'daugment', 'dcovary', 'plsregress', 'rowexch', 'treebagger', 'lasso', 'lassoglm', 'parallel', 'jackknife', 'alsmf', 'pca', 'ppca', 'linearmixedmodel', 'lme', 'fitlme', 'fitlmematrix', 'generalizedlinearmixedmodel', 'fitglme', 'fitrgp', 'fitglm', 'glmfit', 'tall/fitglm', 'tsne'}"}
+        ]
+    },
+
+    "statset":
+    {
+        "inputs":
+        [
+            {"name":"oldopts", "kind":"required", "type":"struct"},
+            {"name":"newopts", "kind":"required", "type":"struct"}
+        ]
+    },
+
+    "statset":
+    {
+        "inputs":
+        [
+            {"name":"oldopts", "kind":"ordered", "type":"struct"},
+
+            {"name":"Display", "kind":"namevalue", "type":"choices={'off', 'final', 'iter'}"},
+            {"name":"MaxFunEvals", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"MaxIter", "kind":"namevalue", "type":["integer", ">=1"]},
+            {"name":"TolBnd", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"TolFun", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"TolTypeFun", "kind":"namevalue", "type":"choices={'abs', 'rel'}"},
+            {"name":"TolX", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"TolTypeX", "kind":"namevalue", "type":"choices={'abs', 'rel'}"},
+            {"name":"GradObj", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"Jacobian", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"DerivStep", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"FunValCheck", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"Robust", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"RobustWgtFun", "kind":"namevalue", "type":"function_handle"},
+            {"name":"Tune", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"UseParallel", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"UseSubstreams", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"Streams", "kind":"namevalue"},
+            {"name":"OutputFcn", "kind":"namevalue", "type":[["function_handle"], ["cellstr"]]}
+         ]
+    },
+
+   "stepwisefit":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"y", "kind":"required", "type":["numeric", "vector"]},
+
+            {"name":"inmodel", "kind":"namevalue", "type":["logical", "vector"]},
+            {"name":"penter", "kind":"namevalue", "type":["scalar", "numeric", ">0", "<1"]},
+            {"name":"premove", "kind":"namevalue", "type":["scalar", "numeric", ">0", "<1"]},
+            {"name":"display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"maxiter", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"keep", "kind":"namevalue", "type":["logical", "vector"]},
+            {"name":"scale", "kind":"namevalue", "type":"choices={'off', 'on'}"}
+        ]
+    },
+
+   "svmtrain":
+    {
+        "inputs":
+        [
+            {"name":"Training", "kind":"required", "type":"numeric"},
+            {"name":"Group", "kind":"required"},
+
+            {"name":"autoscale", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"boxconstraint", "kind":"namevalue", "type":["vector", "numeric", ">0"]},
+            {"name":"kernelcachelimit", "kind":"namevalue", "type":["scalar", "numeric", ">=0", "<=1"]},
+            {"name":"kernel_function", "kind":"namevalue", "type":[["choices={'linear', 'quadratic', 'polynomial', 'rbf', 'mlp'}"], ["char"], ["function_handle"]]},
+            {"name":"kktviolationlevel", "kind":"namevalue", "type":["scalar", "numeric", ">=0", "<=1"]},
+            {"name":"method", "kind":"namevalue", "type":[["choices={'QP', 'SMO', 'LS'}"], ["char"]]},
+            {"name":"mlp_params", "kind":"namevalue", "type":["numeric", "vector", "numel=2"]},
+            {"name":"options", "kind":"namevalue", "type":"struct"},
+            {"name":"polyorder", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"rbf_sigma", "kind":"namevalue", "type":["numeric", ">0"]},
+            {"name":"showplot", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"tolkkt", "kind":"namevalue", "type":["numeric", "scalar", ">0"]}
+        ]
+    },
+
+   "tblread":
+    {
+        "inputs":
+        [
+            {"name":"filename", "kind":"positional", "type":[["file"], ["char"]]},
+            {"name":"delimiter", "kind":"ordered", "type":"choices={'space', 'tab', 'comma', 'semi', 'bar'}"}
+        ]
+    },
+
+   "tblwrite":
+    {
+        "inputs":
+        [
+            {"name":"data", "kind":"required"},
+            {"name":"varnames", "kind":"required", "type":"char"},
+            {"name":"casenames", "kind":"required", "type":"char"},
+            {"name":"filename", "kind":"positional", "type":[["file"], ["char"]]},
+            {"name":"delimiter", "kind":"ordered", "type":"choices={'space', 'tab', 'comma', 'semi', 'bar'}"}
+        ]
+    },
+
+    "tcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"nu", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+   "tdfread":
+    {
+        "inputs":
+        [
+            {"name":"filename", "kind":"positional", "type":[["file"], ["char"]]},
+            {"name":"delimiter", "kind":"ordered", "type":"choices={'space', 'tab', 'comma', 'semi', 'bar'}"}
+        ]
+    },
+
+    "tiedrank":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"tieflag", "kind":"positional", "type":"choices={0, 1}"},
+            {"name":"bidirectional", "kind":"ordered", "type":"choices={0, 1}"}
+        ]
+    },
+
+    "TreeBagger":
+    {
+
+        "inputs":
+        [
+            {"mutuallyExclusiveGroup":
+                [
+                    [
+                        {"name":"NumTrees", "kind":"required", "type":"integer"},
+                        {"name":"Tbl", "kind":"required", "type":"table"},
+                        {"name":"ResponseVarName", "kind":"required", "type":[["choices=Tbl.Properties.VariableNames"], ["char"]]}
+                    ],
+                    [
+                        {"name":"NumTrees", "kind":"required", "type":"integer"},
+                        {"name":"Tbl", "kind":"required", "type":"table"},
+                        {"name":"Formula", "kind":"required", "type":["char","vector"]}
+                    ],
+                    [
+                        {"name":"NumTrees", "kind":"required", "type":"integer"},
+                        {"name":"Tbl", "kind":"required", "type":"table"},
+                        {"name":"Y", "kind":"required"}
+                    ],
+                    [
+                        {"name":"NumTrees", "kind":"required", "type":"integer"},
+                        {"name":"X", "kind":"required", "type":"numeric"},
+                        {"name":"Y", "kind":"required"}
+                    ]
+                ]
+            },
+
+            {"name":"InBagFraction", "kind":"namevalue", "type":"numeric"},
+            {"name":"Cost", "kind":"namevalue", "type":[["numeric"], ["struct"]]},
+            {"name":"SampleWithReplacement", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+            {"name":"OOBPrediction", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+            {"name":"OOBPredictorImportance", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+            {"name":"Method", "kind":"namevalue", "type":"choices={'classification', 'regression'}"},
+            {"name":"NumPredictorsToSample", "kind":"namevalue", "type":[["choices={'all'}"], ["integer", ">0"]]},
+            {"name":"NumPrint", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"MinLeafSize", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"},
+            {"name":"Prior", "kind":"namevalue", "type":[["choices={'Empirical', 'Uniform'}"], ["char"], ["numeric", "vector"], ["struct"]]},
+            {"name":"PredictorNames", "kind":"namevalue", "type":"cellstr"},
+            {"name":"CategoricalPredictors", "kind":"namevalue", "type":[["choices={'all'}"], ["logical", "vector"], ["numeric", "vector"], ["cellstr"], ["char"]]},
+            {"name":"AlgorithmForCategorical", "kind":"namevalue", "type":"choices={'Exact', 'PullLeft', 'PCA', 'OVAbyClass'}"},
+            {"name":"MaxNumCategories", "kind":"namevalue", "type":["numeric", "scalar", ">=0"]},
+            {"name":"MaxNumSplits", "kind":"namevalue", "type":["integer", ">0"]},     
+            {"name":"MergeLeaves", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+            {"name":"PredictorSelection", "kind":"namevalue", "type":"choices={'allsplits', 'curvature', 'interaction-curvature'}"},
+            {"name":"Prune", "kind":"namevalue", "type":"choices={'on', 'off'}"},
+            {"name":"PruneCriterion", "kind":"namevalue", "type":"choices={'error', 'impurity'}"},
+            {"name":"SplitCriterion", "kind":"namevalue", "type":"choices={'gdi', 'twoing', 'deviance', 'OVAbyClass'}"},
+            {"name":"Surrogate", "kind":"namevalue", "type":[["choices={'on', 'off', 'all'}"], ["double", "integer", ">0"], ["single", "integer", ">0"]]},
+            {"name":"Weights", "kind":"namevalue", "type":["numeric", "vector"]},
+            {"name":"QuadraticErrorTolerance", "kind":"namevalue", "type":[["double", "scalar", ">0"], ["single", "scalar", ">0"]]}
+        ]
+    },
+
+    "trimmean":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"percent", "kind":"required"},
+            {"name":"dim", "kind":"ordered", "type":"numeric"},
+            {"name":"flag", "kind":"ordered", "type":"choices={'round', 'floor', 'weight'}"}
+        ]
+    },
+
+   "tsne":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+
+            {"name":"Algorithm", "kind":"namevalue", "type":[["choices={'barneshut', 'exact'}"], ["char"]]},
+            {"name":"Distance", "kind":"namevalue", "type":[["choices={'euclidean', 'seuclidean', 'cityblock', 'chebychev', 'minkowski', 'mahalanobis', 'cosine', 'correlation', 'spearman', 'hamming', 'jaccard'}"], ["char"], ["function_handle"]]},
+            {"name":"Exaggeration", "kind":"namevalue", "type":["numeric", "scalar", ">=1"]},
+            {"name":"NumDimensions", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"NumPCAComponents", "kind":"namevalue", "type":["integer", ">=0"]},
+            {"name":"Perplexity", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"Standardize", "kind":"namevalue", "type":["logical", "scalar"]},
+            {"name":"InitialY", "kind":"namevalue", "type":"numeric"},
+            {"name":"LearnRate", "kind":"namevalue", "type":["numeric", "scalar", ">0"]},
+            {"name":"NumPrint", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"Options", "kind":"namevalue", "type":"struct"},
+            {"name":"Theta", "kind":"namevalue", "type":["numeric", "scalar", ">=0", "<=1"]},
+            {"name":"Verbose", "kind":"namevalue", "type":"choices={0, 1, 2}"}
+        ]
+    },
+
+   "ttest":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"}
+        ]
+    },
+
+    "ttest":
+     {
+         "inputs":
+         [
+             {"name":"x", "kind":"required", "type":"numeric"},
+             {"name":"y", "kind":"required", "type":"numeric"},
+
+             {"name":"Alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+             {"name":"Dim", "kind":"namevalue", "type":["integer", ">0"]},
+             {"name":"Tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"], ["numeric", "scalar", ">=-1", "<=1"]]}
+         ]
+     },
+
+   "ttest2":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"},
+            {"name":"y", "kind":"required", "type":"numeric"},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"Dim", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"Tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"], ["numeric", "scalar", ">=-1", "<=1"]]},
+            {"name":"Vartype", "kind":"namevalue", "type":[["choices={'equal', 'unequal'}"], ["char"]]}
+        ]
+    },
+
+    "unidcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"N", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "unifcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"a", "kind":"required"},
+            {"name":"b", "kind":"required"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+   "vartest":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"},
+            {"name":"v", "kind":"required", "type":["numeric", "scalar", ">=0"]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"Dim", "kind":"namevalue", "type":["scalar", "integer", ">0"]},
+            {"name":"Tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"], ["numeric", "scalar", ">=-1", "<=1"]]}
+        ]
+    },
+
+   "vartest2":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"},
+            {"name":"y", "kind":"required", "type":"numeric"},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"Dim", "kind":"namevalue", "type":["scalar", "integer", ">0"]},
+            {"name":"Tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"], ["numeric", "scalar", ">=-1", "<=1"]]}
+        ]
+    },
+
+   "vartestn":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"},
+
+            {"name":"group", "kind":"ordered", "type":[["numeric", "vector"], ["logical", "vector"], ["categorical"], ["char"], ["cell"], ["cellstr"]]},
+
+            {"name":"Display", "kind":"namevalue", "type":"choices={'off', 'on'}"},
+            {"name":"TestType", "kind":"namevalue", "type":[["choices={'Bartlett', 'LeveneQuadratic', 'LeveneAbsolute', 'BrownForsythe', 'OBrien'}"], ["char"]]}
+        ]
+    },
+
+    "wblcdf":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required"},
+            {"name":"a", "kind":"required"},
+            {"name":"b", "kind":"required"},
+            {"name":"pcov", "kind":"ordered"},
+            {"name":"alpha", "kind":"ordered"},
+            {"name":"upper", "kind":"ordered", "type":"choices={'upper'}"}
+        ]
+    },
+
+    "x2fx":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required"},
+            {"name":"model", "kind":"required", "type":"choices={'linear', 'interaction', 'quadratic', 'purequadratic'}"},
+            {"name":"categ", "kind":"positional"},
+            {"name":"catlevels", "kind":"ordered"}
+         ]
+    },
+
+   "xptread":
+    {
+        "inputs":
+        [
+            {"name":"filename", "kind":"ordered", "type":[["file=*.xpt"], ["char"]]},
+
+            {"name":"ReadObsNames", "kind":"namevalue", "type":["logical", "scalar"]}
+        ]
+    },
+
+    "zscore":
+    {
+        "inputs":
+        [
+            {"name":"X", "kind":"required", "type":"numeric"},
+            {"name":"flag", "kind":"positional", "type":"choices={0, 1}"},
+            {"name":"dim", "kind":"ordered"}
+        ]
+    },
+
+   "ztest":
+    {
+        "inputs":
+        [
+            {"name":"x", "kind":"required", "type":"numeric"},
+            {"name":"m", "kind":"required", "type":["numeric", "scalar"]},
+            {"name":"sigma", "kind":"required", "type":["numeric", "scalar", ">0"]},
+
+            {"name":"Alpha", "kind":"namevalue", "type":["numeric", "scalar", ">0", "<1"]},
+            {"name":"Dim", "kind":"namevalue", "type":["integer", ">0"]},
+            {"name":"Tail", "kind":"namevalue", "type":[["choices={'both', 'right', 'left'}"], ["char"], ["numeric", "scalar", ">=-1", "<=1"]]}
+        ]
+    }
+ }

@@ -1,0 +1,19 @@
+#!/bin/bash -l
+#PBS -A open
+#PBS -N amos
+#PBS -l nodes=1:ppn=10
+#PBS -l pmem=20gb
+#PBS -l walltime=24:00:00
+#PBS -j oe
+#PBS -j oe
+#PBS -m abe
+#PBS -M shuoshuo.liu@psu.edu
+
+cd Liu-Lin-JMLR/WM-NMF
+echo PBS: qsub is running on $PBS_O_HOST
+echo PBS: job identifier is $PBS_JOBID
+echo PBS: job name is $PBS_JOBNAME
+module load matlab
+matlab -nodesktop -nosplash -r exe
+echo PBS: End Time is `date`
+exit
